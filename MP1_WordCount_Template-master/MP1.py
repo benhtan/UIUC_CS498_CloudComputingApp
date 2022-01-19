@@ -59,8 +59,15 @@ def process(userID):
     for idx in indexes:
         titlesIndexed += split_on_multiple_chars(titles[idx], delimiters + '\n')
     
+    # Cleanup word list. Make lowercase. Remove empty string. Remove stopWordsList
+    toBeRemovedIdx = []
     for idx, word in enumerate(titlesIndexed):
         titlesIndexed[idx] = word.lower()
+        if word == '' or word in stopWordsList:
+            toBeRemovedIdx.append(idx)
+    
+    while toBeRemovedIdx:
+        titlesIndexed.pop(toBeRemovedIdx.pop())
     
     print(titlesIndexed[:100])
     
