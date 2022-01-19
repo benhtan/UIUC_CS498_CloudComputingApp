@@ -65,12 +65,11 @@ def process(userID):
     toBeRemovedIdx = []
     for idx, word in enumerate(titlesIndexed):
         titlesIndexed[idx] = word.lower()
-        if word == '' or word in stopWordsList:
+        if word == '' or (word.lower() in stopWordsList):
             toBeRemovedIdx.append(idx)
     
     while toBeRemovedIdx:
         titlesIndexed.pop(toBeRemovedIdx.pop())
-    
     # print(titlesIndexed[:100])
     
     # Calculate word count
@@ -81,6 +80,7 @@ def process(userID):
         else:
             wordCount[word] = 1
     
+    # Sort by descending count and ascending word lexigraphy
     wordCount = {val[0] : val[1] for val in sorted(wordCount.items(), key = lambda x: (-x[1], x[0]))}
     # print(wordCount)
     
