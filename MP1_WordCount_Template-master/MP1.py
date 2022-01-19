@@ -53,6 +53,8 @@ def process(userID):
         return(bb)
     
     # print(split_on_multiple_chars(titles[13], delimiters + '\n'))
+    # print(split_on_multiple_chars('paå„stwa', delimiters + '\n'))
+    # print(split_on_multiple_chars('a,b', delimiters + '\n'))
     
     # Make list of words from splitted titles
     titlesIndexed = []
@@ -69,7 +71,18 @@ def process(userID):
     while toBeRemovedIdx:
         titlesIndexed.pop(toBeRemovedIdx.pop())
     
-    print(titlesIndexed[:100])
+    # print(titlesIndexed[:100])
+    
+    # Calculate word count
+    wordCount = {}
+    for word in titlesIndexed:
+        if word in wordCount:
+            wordCount[word] += 1
+        else:
+            wordCount[word] = 1
+    
+    wordCount = sorted(wordCount.items(), key=lambda kv: kv[1], reverse=True)
+    print(wordCount[:20])
     
     for word in ret:
         print(word)
