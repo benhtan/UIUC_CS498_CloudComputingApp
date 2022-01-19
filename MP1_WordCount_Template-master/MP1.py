@@ -26,10 +26,42 @@ def getIndexes(seed):
     return ret
 
 def process(userID):
-    indexes = getIndexes(userID)
+    indexes = getIndexes(userID) # List of random integer refering to "line index" of input.txt
     ret = []
     # TODO
-                    
+    titles = sys.stdin.readlines()
+    
+    def split_on_multiple_chars(string_to_split, set_of_chars_as_string):
+        # Recursive splitting
+        # Returns a list of strings
+
+        s = string_to_split
+        chars = set_of_chars_as_string
+
+        # If no more characters to split on, return input
+        if len(chars) == 0:
+            return([s])
+
+        # Split on the first of the delimiter characters
+        ss = s.split(chars[0])
+
+        # Recursive call without the first splitting character
+        bb = []
+        for e in ss:
+            aa = split_on_multiple_chars(e, chars[1:])
+            bb.extend(aa)
+        return(bb)
+    
+    # print(split_on_multiple_chars(titles[13], delimiters + '\n'))
+    
+    # Make list of words from splitted titles
+    titlesIndexed = []
+    for idx in indexes:
+        titlesIndexed += split_on_multiple_chars(titles[idx], delimiters + '\n')
+    print(titlesIndexed[:100])
+    
+    
+    
     for word in ret:
         print(word)
 
