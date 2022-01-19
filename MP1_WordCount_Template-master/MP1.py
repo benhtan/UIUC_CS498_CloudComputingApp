@@ -58,9 +58,11 @@ def process(userID):
     titlesIndexed = []
     for idx in indexes:
         titlesIndexed += split_on_multiple_chars(titles[idx], delimiters + '\n')
+    
+    for idx, word in enumerate(titlesIndexed):
+        titlesIndexed[idx] = word.lower()
+    
     print(titlesIndexed[:100])
-    
-    
     
     for word in ret:
         print(word)
