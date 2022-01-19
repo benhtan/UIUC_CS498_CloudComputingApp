@@ -85,7 +85,7 @@ def process(userID):
     # print(wordCount)
     
     for i, word in enumerate(wordCount):
-        if i == 19:
+        if i == 20:
             break
         # print(f'{word} {wordCount[word]}')
         print(word)
