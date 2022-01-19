@@ -81,10 +81,16 @@ def process(userID):
         else:
             wordCount[word] = 1
     
-    wordCount = sorted(wordCount.items(), key=lambda kv: kv[1], reverse=True)
-    print(wordCount[:20])
+    wordCount = {val[0] : val[1] for val in sorted(wordCount.items(), key = lambda x: (-x[1], x[0]))}
+    # print(wordCount)
     
-    for word in ret:
+    for i, word in enumerate(wordCount):
+        if i == 19:
+            break
+        # print(f'{word} {wordCount[word]}')
         print(word)
+    
+    # for word in ret:
+    #     print(word)
 
 process(sys.argv[1])
