@@ -1,0 +1,12 @@
+Connecting to EC2 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
+With PuTTY
+Convert Key
+
+install phyton, pip, flask on EC2
+
+Transfer file for local to EC2 using WinSCP
+
+export FLASK_APP=app.py
+flask run --host=0.0.0.0
+
+Go to EC2 public IPv4 address but with HTTP not HTTPS. Go to the right port number, usuall :5000
