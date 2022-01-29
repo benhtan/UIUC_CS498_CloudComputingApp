@@ -1,6 +1,6 @@
 Connecting to EC2 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
 With PuTTY
-Convert Key
+Convert Key .pem to .ppk using PuTTY
 
 install phyton, pip, flask on EC2
 
