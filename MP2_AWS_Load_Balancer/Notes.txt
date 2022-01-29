@@ -11,6 +11,6 @@ flask run --host=0.0.0.0
 
 Go to EC2 public IPv4 address but with HTTP not HTTPS. Go to the right port number, usuall :5000
 
-Add target to target group
+Add target to target group, make sure they are healthy
 
 Add EC2 security group to load balancer security group
