@@ -1,7 +1,9 @@
 import json
+import boto3
 
 def lambda_handler(event, context):
-    graph = {"graph": "Chicago->Urbana,Urbana->Springfield,Chicago->Lafayette,Lafayette->XX,XX->Springfield"}
+    # graph = {"graph": "Chicago->Urbana,Urbana->Springfield,Chicago->Lafayette,Lafayette->XX,XX->Springfield"}
+    graph = event
 
     # split edges from string
     edges = graph['graph'].split(',')
@@ -31,14 +33,31 @@ def lambda_handler(event, context):
     
     # print(edges)
     # print(vertex)
-    print(distances)
+    # print(distances)
     # find_neighbour('Chicago', distances)
     # print(calc_distance('Springfield', 'Lafayette', distances))
-
-    return {
+    
+    # DynamoDB
+    dynamodb = boto3.resource('dynamodb')
+    client = boto3.client('dynamodb')
+    table_CS498_MP3_Distance = dynamodb.Table('CS498-MP3-Distance')
+    
+    try:
+        for route in distances:
+            table_CS498_MP3_Distance.put_item(Item={'route': route, 'dist': distances[route]})
+        
+        return {
         'statusCode': 200,
         'body': 'Success'
-    }
+        }
+    except Exception as e:
+        print(e)
+        return {
+        'statusCode': 500,
+        'body': 'Error Saving'
+        }
+
+    
     
 def calc_distance(origin, dest, distances):
     neighbour_q = [origin]  # queue
