@@ -3,6 +3,7 @@ import boto3
 
 def lambda_handler(event, context):
     # graph = {"graph": "Chicago->Urbana,Urbana->Springfield,Chicago->Lafayette,Lafayette->XX,XX->Springfield"}
+    # graph = {"graph": "New York->New Jersey,New Jersey->Boston,Boston->Philadelphia,New York->Washington,New York->Miami,New Jersey->Houston,Boston->Houston,Miami->Austin,Los Angeles->New Jersey,Los Angeles->Philadelphia,San Francisco->Las Vegas,Las Vegas->Washington,Houston->Las Vegas,Chicago->New Jersey,Los Angeles->Chicago"}
     graph = event
 
     # split edges from string
