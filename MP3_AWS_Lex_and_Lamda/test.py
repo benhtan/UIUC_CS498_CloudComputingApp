@@ -6,8 +6,8 @@ url = "https://seorwrpmwh.execute-api.us-east-1.amazonaws.com/prod/mp3-autograde
 
 payload = {
 	"graphApi": 'https://lwv3a3q3n3.execute-api.us-east-1.amazonaws.com/Prod',#<post api for storing the graph>,
-	"botName": # <name of your Amazon Lex Bot>, 
-	"botAlias": # <alias name given when publishing the bot>,
+	"botName": 'DistanceCalc',# <name of your Amazon Lex Bot>, 
+	"botAlias": 'DistanceCalc',# <alias name given when publishing the bot>,
 	"identityPoolId": #<cognito identity pool id for lex>,
 	"accountId": #<your aws account id used for accessing lex>,
 	"submitterEmail": # <insert your coursera account email>,
