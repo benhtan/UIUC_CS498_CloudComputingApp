@@ -1,0 +1,10 @@
+{
+    "messageVersion": "1.0", 
+    "invocationSource": "FulfillmentCodeHook", 
+    "userId": "vyaffzzjklyqow5bxtawywgpqs2hjx1l", 
+    "sessionAttributes": {}, 
+    "requestAttributes": None, 
+    "bot": {"name": "DistanceCalc", "alias": "$LATEST", "version": "$LATEST"}, 
+    "outputDialogMode": "Text", 
+    "currentIntent": {"name": "DistanceWithinSpecifiedCities", "slots": {"Destination": "Springfield", "Source": "Chicago"}, "slotDetails": {"Destination": {"resolutions": [], "originalValue": "Springfield"}, "Source": {"resolutions": [], "originalValue": "Chicago"}}, 
+    "confirmationStatus": "None", "nluIntentConfidenceScore": 1.0}, "alternativeIntents": [{"name": "AMAZON.FallbackIntent", "slots": {}, "slotDetails": {}, "confirmationStatus": "None", "nluIntentConfidenceScore": None}], "inputTranscript": "What is the distance from Chicago to Springfield?", "recentIntentSummaryView": None, "sentimentResponse": None, "kendraResponse": None}
