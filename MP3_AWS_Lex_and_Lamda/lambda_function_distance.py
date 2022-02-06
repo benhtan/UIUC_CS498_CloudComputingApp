@@ -1,17 +1,30 @@
 def calc_distance(origin, dest, distances):
-    neighbour_q = find_neighbour(origin, distances)
-    visited = [origin]
+    neighbour_q = [origin]  # queue
+    visited = []    # tracking visited
+    curr_dist = 0   # distance from origin
+    neighbour_dist = {origin:curr_dist} # tracking destination and its distance from origin
     # print(neighbour_q)
     while neighbour_q:
-        print(neighbour_q)
+        # print(neighbour_q)
         visit = neighbour_q.pop(0)
         visited.append(visit)
         
         neighbours = find_neighbour(visit, distances)
+        curr_dist = neighbour_dist[visit] + 1
         for n in neighbours:
             if n not in visited:
                 neighbour_q.append(n)
-    print(visited)
+            if n not in neighbour_dist:
+                neighbour_dist[n] = curr_dist
+        
+        # print(visit)  
+        # print(neighbour_dist)
+                
+    # print(visited)
+    print(neighbour_dist)
+    if dest in neighbour_dist:
+        return neighbour_dist[dest]
+
     return -1
 
 def find_neighbour(city, distances):
@@ -24,7 +37,7 @@ def find_neighbour(city, distances):
     # print(neighbour)
     return neighbour
 
-graph = {"graph": "Chicago->Urbana,Urbana->Springfield,Chicago->Lafayette"}
+graph = {"graph": "Chicago->Urbana,Urbana->Springfield,Chicago->Lafayette,Lafayette->XX,XX->Springfield"}
 
 # split edges from string
 edges = graph['graph'].split(',')
@@ -48,10 +61,11 @@ for i in range(len(vertex)):
             pass
             # dist = calc_distance(vertex[i], vertex[j], distances)
             # distances[vertex[i] + '->' + vertex[j]] = dist
+            # distances[vertex[j] + '->' + vertex[i]] = dist
     
 
 # print(edges)
 # print(vertex)
 # print(distances)
 # find_neighbour('Chicago', distances)
-calc_distance('Chicago', 'Springfield', distances)
+print(calc_distance('Springfield', 'Lafayette', distances))
