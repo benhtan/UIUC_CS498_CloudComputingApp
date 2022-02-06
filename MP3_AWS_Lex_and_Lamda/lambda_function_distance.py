@@ -21,7 +21,7 @@ def calc_distance(origin, dest, distances):
         # print(neighbour_dist)
                 
     # print(visited)
-    print(neighbour_dist)
+    # print(neighbour_dist)
     if dest in neighbour_dist:
         return neighbour_dist[dest]
 
@@ -53,19 +53,20 @@ for edge in edges:
 
 vertex = list(vertex)   # convert set to list
 for i in range(len(vertex)):
-    for j in range(len(vertex)):
+    for j in range(i, len(vertex)):
         # if origin and destination is the same city
         if vertex[i] == vertex[j]:
             distances[vertex[i] + '->' + vertex[j]] = 0
         elif vertex[i]+vertex[j] not in distances:
             pass
-            # dist = calc_distance(vertex[i], vertex[j], distances)
-            # distances[vertex[i] + '->' + vertex[j]] = dist
-            # distances[vertex[j] + '->' + vertex[i]] = dist
+            dist = calc_distance(vertex[i], vertex[j], distances)
+            distances[vertex[i] + '->' + vertex[j]] = dist
+            distances[vertex[j] + '->' + vertex[i]] = dist
+            # print(f'{vertex[i]}->{vertex[j]}: {dist}')
     
 
 # print(edges)
 # print(vertex)
-# print(distances)
+print(distances)
 # find_neighbour('Chicago', distances)
-print(calc_distance('Springfield', 'Lafayette', distances))
+# print(calc_distance('Springfield', 'Lafayette', distances))
