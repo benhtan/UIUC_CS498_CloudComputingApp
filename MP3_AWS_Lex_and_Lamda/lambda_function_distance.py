@@ -44,6 +44,7 @@ def lambda_handler(event, context):
     
     try:
         for route in distances:
+            table_CS498_MP3_Distance.put_item(Item={'route': route})
             table_CS498_MP3_Distance.put_item(Item={'route': route, 'dist': distances[route]})
         
         return {
