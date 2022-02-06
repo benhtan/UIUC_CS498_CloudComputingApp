@@ -46,7 +46,7 @@ def lambda_handler(event, context):
     try:
         table_CS498_MP3_Distance.put_item(Item={'route': json.dumps(graph)}) # save original request packet
         
-        with table.batch_writer() as batch:
+        with table_CS498_MP3_Distance.batch_writer() as batch:
             for route in distances:
                 # table_CS498_MP3_Distance.delete_item(Key={'route': route}) # delete existing entree
                 #table_CS498_MP3_Distance.put_item(Item={'route': route, 'source': route.split('->')[0], 'destination': route.split('->')[1], 'distance': distances[route]}) # insert new entree

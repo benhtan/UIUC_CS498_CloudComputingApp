@@ -15,7 +15,7 @@ def lambda_handler(event, context):
     response = None
     try:
         route = table_CS498_MP3_Distance.get_item(Key={'route':f'{source}->{destination}'})['Item']
-        print(route)
+        print(f'route: {route}')
 
         response = {
         "dialogAction": {
@@ -40,5 +40,5 @@ def lambda_handler(event, context):
         }
     }
     
-    print(response)
+    print(f'response: {response}')
     return response
