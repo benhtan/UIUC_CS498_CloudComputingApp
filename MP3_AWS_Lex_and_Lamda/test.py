@@ -11,7 +11,7 @@ payload = {
 	"identityPoolId": "us-east-1:cc2f1c89-bd9e-4b7c-9b11-a8ac2057e454",#<cognito identity pool id for lex>,
 	"accountId": '793557681566', #<your aws account id used for accessing lex>,
 	"submitterEmail": 'btan90@gmail.com',# <insert your coursera account email>,
-	"secret": 'we2UFCnkAS3adyUP', # <insert your secret token from coursera>,
+	"secret": '8L87gq7c89DuDLXd', # <insert your secret token from coursera>,
 	"region": 'us-east-1', #<Region where your lex is deployed (Ex: us-east-1)>
     }
 
