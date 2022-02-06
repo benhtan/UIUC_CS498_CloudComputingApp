@@ -43,10 +43,10 @@ def lambda_handler(event, context):
     table_CS498_MP3_Distance = dynamodb.Table('CS498-MP3-Distance')
     
     try:
-        table_CS498_MP3_Distance.put_item(Item={'route': json.dumps(graph), 'dist': 999}) # save original request packet
+        table_CS498_MP3_Distance.put_item(Item={'route': json.dumps(graph)}) # save original request packet
         for route in distances:
-            table_CS498_MP3_Distance.put_item(Item={'route': route}) # delete existing entree
-            table_CS498_MP3_Distance.put_item(Item={'route': route, 'dist': distances[route]}) # insert new entree
+            table_CS498_MP3_Distance.delete_item(Key={'route': route}) # delete existing entree
+            table_CS498_MP3_Distance.put_item(Item={'route': route, 'source': route.split('->')[0], 'destination': route.split('->')[1], 'distance': distances[route]}) # insert new entree
         
         return {
         'statusCode': 200,
