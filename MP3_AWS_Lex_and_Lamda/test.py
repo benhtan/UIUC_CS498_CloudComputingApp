@@ -5,7 +5,7 @@ import uuid
 url = "https://seorwrpmwh.execute-api.us-east-1.amazonaws.com/prod/mp3-autograder-2022-spring"
 
 payload = {
-	"graphApi": #<post api for storing the graph>,
+	"graphApi": 'https://lwv3a3q3n3.execute-api.us-east-1.amazonaws.com/Prod',#<post api for storing the graph>,
 	"botName": # <name of your Amazon Lex Bot>, 
 	"botAlias": # <alias name given when publishing the bot>,
 	"identityPoolId": #<cognito identity pool id for lex>,
