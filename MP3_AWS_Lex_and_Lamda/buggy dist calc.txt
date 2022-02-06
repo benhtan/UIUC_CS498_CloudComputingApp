@@ -1,0 +1,70 @@
+Miami->Chicago: 3
+Miami->Boston: 3
+Miami->Las Vegas: 3
+
+#### Miami->Los Angeles: 2
+
+Miami->Austin: 1
+
+#### Miami->Philadelphia: 2
+
+Miami->Houston: 2
+Miami->New Jersey: 2
+Miami->New York: 1
+Miami->Washington: 2
+Miami->San Francisco: 2
+Chicago->Boston: 2
+Chicago->Las Vegas: 2
+Chicago->Los Angeles: 1
+Chicago->Austin: 2
+Chicago->Philadelphia: 2
+Chicago->Houston: 2
+Chicago->New Jersey: 1
+Chicago->New York: 2
+Chicago->Washington: 2
+Chicago->San Francisco: 2
+Boston->Las Vegas: 2
+Boston->Los Angeles: 2
+Boston->Austin: 2
+Boston->Philadelphia: 1
+Boston->Houston: 1
+Boston->New Jersey: 1
+Boston->New York: 2
+Boston->Washington: 2
+Boston->San Francisco: 2
+Las Vegas->Los Angeles: 2
+Las Vegas->Austin: 2
+Las Vegas->Philadelphia: 2
+Las Vegas->Houston: 1
+Las Vegas->New Jersey: 2
+Las Vegas->New York: 2
+Las Vegas->Washington: 1
+Las Vegas->San Francisco: 1
+Los Angeles->Austin: 2
+Los Angeles->Philadelphia: 1
+Los Angeles->Houston: 2
+Los Angeles->New Jersey: 1
+Los Angeles->New York: 2
+Los Angeles->Washington: 2
+Los Angeles->San Francisco: 2
+Austin->Philadelphia: 2
+Austin->Houston: 2
+Austin->New Jersey: 2
+Austin->New York: 2
+Austin->Washington: 2
+Austin->San Francisco: 2
+Philadelphia->Houston: 2
+Philadelphia->New Jersey: 2
+Philadelphia->New York: 2
+Philadelphia->Washington: 2
+Philadelphia->San Francisco: 2
+Houston->New Jersey: 1
+Houston->New York: 2
+Houston->Washington: 2
+Houston->San Francisco: 2
+New Jersey->New York: 1
+New Jersey->Washington: 2
+New Jersey->San Francisco: 2
+New York->Washington: 1
+New York->San Francisco: 2
+Washington->San Francisco: 2

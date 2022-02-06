@@ -9,34 +9,39 @@ def lambda_handler(event, context):
     # split edges from string
     edges = graph['graph'].split(',')
     vertex = set()  # to store unique vertex (city)
-    distances = {}  # to store distances between vertex (city)
-    
+    distances = {}  # to store distances between vertex (city), from a given graph
+    distances_calculated = {} # to store distances between vertex (city), calculated by program
+
     # enter edges with length 1 to dict distances
     for edge in edges:
         cities = edge.split('->')   # get just the cities
         distances[cities[0] + '->' + cities[1]] = 1  # enter the distance between to edge
         distances[cities[1] + '->' + cities[0]] = 1  # enter the distance between to edge, the reverse
         vertex.update(cities)   # enter unique cities to set
-    
+
+    # print(find_neighbour('New Jersey', distances))
+
     vertex = list(vertex)   # convert set to list
     for i in range(len(vertex)):
         for j in range(i, len(vertex)):
             # if origin and destination is the same city
             if vertex[i] == vertex[j]:
-                distances[vertex[i] + '->' + vertex[j]] = 0
-            elif vertex[i]+vertex[j] not in distances:
+                distances_calculated[vertex[i] + '->' + vertex[j]] = 0
+            elif vertex[i]+vertex[j] not in distances_calculated:
                 pass
                 dist = calc_distance(vertex[i], vertex[j], distances)
-                distances[vertex[i] + '->' + vertex[j]] = dist
-                distances[vertex[j] + '->' + vertex[i]] = dist
+                distances_calculated[vertex[i] + '->' + vertex[j]] = dist
+                distances_calculated[vertex[j] + '->' + vertex[i]] = dist
                 # print(f'{vertex[i]}->{vertex[j]}: {dist}')
+
+    distances.update(distances_calculated)
         
-    
+
     # print(edges)
     # print(vertex)
     # print(distances)
-    # find_neighbour('Chicago', distances)
-    # print(calc_distance('Springfield', 'Lafayette', distances))
+    # print(find_neighbour('Chicago', distances))
+    # print(calc_distance('Miami', 'Philadelphia', distances))
     
     # DynamoDB
     dynamodb = boto3.resource('dynamodb')
