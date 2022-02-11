@@ -26,11 +26,27 @@ with open(delimitersPath) as f:
     delimiters = [c for c in delimiters]
     # print(delimiters)
 
-# for line in sys.stdin:
-  
-#     # TODO
-#     print(line)
+# text = sys.stdin
+text = []
+textPath = 'titles-a.txt'
 
-#     # print('%s\t%s' % (  ,  )) pass this output to reducer
+def replaceDelimitersWithSpace(w, d):
+    for e in d:
+        w = w.replace(e, ' ')
+    return w
 
+# print(replaceDelimitersWithSpace('Benson_&_Hedges_Match_Play_Championship',delimiters))
 
+with open(textPath, encoding="utf8") as f:
+    text = [line.rstrip('\n') for line in f]
+
+for line in text:
+      
+    # TODO
+    word_list = replaceDelimitersWithSpace(line,delimiters).split()
+    
+    for word in word_list:
+        if word not in stopWords:
+            print(word.lower() + '\t' + '1')
+
+    # print('%s\t%s' % (  ,  )) pass this output to reducer
