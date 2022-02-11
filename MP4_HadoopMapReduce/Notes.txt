@@ -1,0 +1,1 @@
+Use winpty docker ..... in git bash
