@@ -9,11 +9,11 @@ for line in f:
        line = line.rstrip('\n')
        words.append(line.split('\t'))
 
-words.sort(key=lambda t: int(t[1]))
+words.sort( key=lambda t: (int(t[1]), t[0]) )
 
 # print(words[-5:])
 #TODO
-for word in words[-5:]:
+for word in words[-10:]:
        output = f'{word[0]}\t{word[1]}'
        print(output)
     #    n.write(output + '\n')
