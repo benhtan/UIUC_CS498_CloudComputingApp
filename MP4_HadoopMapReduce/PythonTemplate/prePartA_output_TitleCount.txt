@@ -3013,7 +3013,6 @@ $uper	1
 `o`o	1
 `oe	1
 `oved	1
-a	786
 a&g	1
 a&m	6
 a&w	1
@@ -3455,9 +3454,7 @@ abou	1
 abouabdillah	1
 aboud	2
 aboul	1
-about	24
 aboutaleb	1
-above	9
 abp	1
 abr	1
 abrabanel	1
@@ -4310,7 +4307,6 @@ afsouth	1
 afsr	1
 aft	1
 aftab	2
-after	22
 afterburner	1
 aftercooler	1
 afterlife	2
@@ -4327,8 +4323,6 @@ agabek	1
 agach	1
 agai	1
 agailjhara	1
-again	24
-against	27
 agakishibeyli	1
 agal	1
 agali	1
@@ -5375,7 +5369,6 @@ alkahttab	1
 alkaline	1
 alkenopterus	1
 alkylidenes	1
-all	178
 alla	5
 allactaginae	1
 allagash	1
@@ -5764,7 +5757,6 @@ alæ	1
 alí	1
 alšauskaitė	1
 al–nurayn	1
-am	119
 am1280	1
 am700	1
 am770	1
@@ -6166,7 +6158,6 @@ amytornis	1
 amélie	1
 américa	3
 américaine	1
-an	61
 an'	1
 ana	18
 anabelle	2
@@ -6299,7 +6290,6 @@ ancuabe	1
 ancud	1
 ancylolomia	1
 ancízar	1
-and	85
 andalucia	2
 andalucista	1
 andalusian	2
@@ -6939,7 +6929,6 @@ anvar	1
 anvers	1
 anvil	3
 anwar	4
-any	3
 anya	2
 anyanka	1
 anychka	1
@@ -7514,7 +7503,6 @@ ardrahan	1
 ardres	1
 ardrossan	1
 ardzivian	1
-are	37
 area	152
 areas	16
 areca	3
@@ -8050,7 +8038,6 @@ arès	1
 arévalo	1
 arıqdam	1
 arţari	1
-as	37
 as50	1
 asa	7
 asa'pili	1
@@ -8474,7 +8461,6 @@ asystasia	1
 asău	1
 asăul	1
 asō	1
-at	51
 at&t	3
 ata	6
 atabeg	1
@@ -10998,7 +10984,6 @@ bdelloid	1
 bdp	1
 bdsm	1
 bdtc	1
-be	79
 be'ena'	1
 be'er	2
 bea	3
@@ -11114,7 +11099,6 @@ bec	2
 became	1
 becancour	1
 becarac	1
-because	5
 beccari	1
 beccaria	1
 beccariana	1
@@ -11208,7 +11192,6 @@ beekeeping	1
 beel	1
 beeldende	1
 beeline	2
-been	2
 beenamol	1
 beep	2
 beer	30
@@ -11233,7 +11216,6 @@ beezelbub	1
 beezrat	1
 befehl	2
 beffroi	1
-before	16
 befort	1
 beforu	1
 beg	3
@@ -11302,7 +11284,6 @@ beikoku	1
 beilen	1
 beilharz	1
 beillei	1
-being	5
 beings	1
 beinlaus	1
 beinn	4
@@ -11474,7 +11455,6 @@ belorechensk	1
 belorussian	1
 belotinac	1
 beloved	2
-below	4
 beloyarsky	1
 belpberg	1
 belphegor	1
@@ -11991,7 +11971,6 @@ bettle	1
 betts	3
 bettws	1
 betty	18
-between	13
 betwixt	1
 betz	1
 betzkoy	1
@@ -13909,7 +13888,6 @@ botaurus	1
 botcon	1
 botei	2
 botev	1
-both	4
 botha	1
 botham	1
 bothel	1
@@ -15788,7 +15766,6 @@ bustillo	2
 bustinza	1
 buswell	1
 busy	1
-but	22
 butak	1
 butanediol	1
 butanol	1
@@ -15887,7 +15864,6 @@ bwh	1
 bwi	1
 bwiema	1
 bwv	2
-by	34
 byakar	1
 byakugan	1
 byala	2
@@ -16624,7 +16600,6 @@ camtran	1
 camuccini	1
 camuna	1
 camus	2
-can	29
 can't	20
 cana	1
 canaan	2
@@ -25727,7 +25702,6 @@ dictisque	1
 dictor	1
 dictyosome	1
 dicutta	1
-did	4
 didactyla	1
 didam	1
 didcot	2
@@ -26437,7 +26411,6 @@ dniestrem	1
 dns	2
 dnssec	1
 dnv	1
-do	58
 do'urden	1
 doak	1
 doan	1
@@ -26538,7 +26511,6 @@ doerksen	1
 doerner	1
 doernigheim	1
 doerpen	2
-does	3
 doesburg	1
 doestoyevski	1
 doeuvre	1
@@ -26573,7 +26545,6 @@ dohyō	1
 doi	1
 doin	1
 doin'	1
-doing	1
 dojahng	1
 dojc	1
 dojindo	1
@@ -26712,7 +26683,6 @@ domstolen	1
 domus	1
 domusculta	1
 domínguez	3
-don	67
 don's	1
 don't	39
 dona	5
@@ -27040,7 +27010,6 @@ dowie	1
 dowiyogo	1
 dowle	1
 dowling	1
-down	54
 downame	1
 downard	1
 downburst	1
@@ -28096,7 +28065,6 @@ e9	2
 e928	1
 e=mc2	1
 ea	2
-each	2
 eadgar	1
 eadie	2
 eadnothus	1
@@ -32001,7 +31969,6 @@ feuillants	1
 feustel	1
 feux	1
 fever	17
-few	3
 fewston	1
 fey	1
 feyeryya	1
@@ -32992,7 +32959,6 @@ footprints	1
 footscray	2
 footy	3
 fop	1
-for	97
 foradada	1
 forage	2
 foraker	1
@@ -33747,7 +33713,6 @@ frolics	1
 frolla	1
 frolov	1
 frolunda	1
-from	70
 fromage	1
 fromenteau	1
 fromentières	1
@@ -34029,7 +33994,6 @@ furst	8
 furstenberg	2
 furstenwalde	2
 furth	1
-further	4
 furthering	1
 furtwaengler	1
 furtwangler	1
@@ -38344,7 +38308,6 @@ hackmaster	1
 hackney	4
 hacıməmmədoba	1
 hacısamədli	1
-had	8
 hadad	1
 hadada	1
 hadali	1
@@ -39193,7 +39156,6 @@ harzburgtite	1
 harzvorland	1
 haré	1
 harţag	1
-has	5
 has1	1
 hasama	1
 hasan	11
@@ -39354,7 +39316,6 @@ havanur	1
 havard	3
 havas	1
 havasu	1
-have	23
 havel	2
 havelis	1
 havelock	1
@@ -39516,7 +39477,6 @@ hdad	1
 hdd	1
 hdms	2
 hdvd	1
-he	12
 he's	2
 head	64
 head5	1
@@ -40019,7 +39979,6 @@ heppke	1
 hepsera	1
 heptagonal	1
 heptanoate	1
-her	16
 hera	1
 heraclei	1
 heracles	1
@@ -40055,7 +40014,6 @@ herculius	1
 herculândia	1
 herd	1
 herdecke	1
-here	20
 here's	1
 heredia	1
 hereditary	9
@@ -40518,7 +40476,6 @@ hilton	11
 hilton's	1
 hilyer	1
 hilyte	1
-him	4
 himachal	1
 himalayan	2
 himalayas	1
@@ -40646,7 +40603,6 @@ hirsuteness	1
 hirt	1
 hirundo	1
 hirzebruch	1
-his	29
 hisahito	1
 hisarönü	1
 hisashi	1
@@ -41525,7 +41481,6 @@ hovering	1
 hovhannes	1
 hovin	1
 hovk’	1
-how	40
 howard	66
 howatt	2
 howdershelt	1
@@ -42372,7 +42327,6 @@ hλlf	1
 hạnh	1
 hải	1
 hữu	1
-i	530
 i'	1
 i'd	1
 i'll	5
@@ -42625,7 +42579,6 @@ ietf	1
 ietsugu	1
 ieva's	1
 ieyoshi	1
-if	24
 ifa	3
 ifafa	1
 ifampitsarana	1
@@ -43035,7 +42988,6 @@ imtiaz	1
 imuze	1
 imv	1
 imx	1
-in	237
 ina	4
 inaara	1
 inaba	1
@@ -43696,7 +43648,6 @@ intifada	1
 intimal	1
 intimidates	1
 intimité	1
-into	18
 intolleranza	1
 intouch	1
 intourist	1
@@ -43975,7 +43926,6 @@ iráklio	1
 iráklion	1
 irán	1
 irênio	1
-is	105
 isa	6
 isaac	26
 isaacs	1
@@ -44191,7 +44141,6 @@ isère	2
 isérables	1
 isére	1
 isḥāq	1
-it	80
 it's	36
 ita	1
 itabera	1
@@ -44262,8 +44211,6 @@ itoua	1
 itozaki	1
 itramin	1
 itroun	1
-its	1
-itself	3
 itsenaisyyspaiva	1
 itsukaichi	1
 itsy	1
@@ -46021,7 +45968,6 @@ juscelino	1
 juscha	1
 jusid	1
 jussieu	1
-just	31
 justicar	1
 justice	42
 justices	3
@@ -57369,7 +57315,6 @@ mdm	1
 mdmx	1
 mdot	1
 mds	1
-me	167
 me'	1
 me'aggel	1
 me'arat	1
@@ -60284,7 +60229,6 @@ mordell	1
 morden	1
 mordington	1
 mordvin	1
-more	21
 morea	1
 moreau	3
 morecambe	2
@@ -60503,7 +60447,6 @@ mossinson	1
 mossley	1
 mossotti	1
 mossy	1
-most	30
 mostafa	3
 mostar	1
 moste	1
@@ -61483,7 +61426,6 @@ mwss	1
 mwynfawr	1
 mxpx	1
 mxr	1
-my	146
 mya	2
 myadestes	1
 myadora	1
@@ -61558,7 +61500,6 @@ myrtifolia	1
 myrtle	7
 myrtlebank	1
 mys	1
-myself	7
 mysorensis	2
 mysorepak	1
 myspace	1
@@ -63805,7 +63746,6 @@ nnadia	1
 nnamani	1
 nnewi	1
 nnr	1
-no	230
 noaa	1
 noach	1
 noachian	1
@@ -63987,7 +63927,6 @@ nootropics	1
 nooyi	1
 noppera	1
 noquebay	1
-nor	6
 nor'easter	1
 nora	4
 nora'im	1
@@ -64157,7 +64096,6 @@ nostolepis	1
 nostra	1
 nostradamus	1
 nostrum	1
-not	44
 not4chanserver	1
 notable	25
 notah	1
@@ -64280,7 +64218,6 @@ novák	4
 nového	1
 nový	1
 novăcel	1
-now	42
 nowa	7
 nowakowski	1
 nowas	1
@@ -65092,12 +65029,10 @@ oesten	1
 oetken	1
 oetwil	1
 oey	1
-of	192
 ofahengaue	1
 ofaye	1
 ofbiz	1
 ofc	2
-off	29
 offaly	2
 offbeat	1
 offences	1
@@ -65550,11 +65485,9 @@ omurtag	1
 omus	1
 omuta	1
 omweso	1
-on	124
 on&on&on	1
 ona	2
 onacai	1
-once	14
 oncf	1
 onchan	1
 oncle	1
@@ -65606,7 +65539,6 @@ onkelz	1
 onkwehonwe	1
 onlays	1
 online	41
-only	25
 onn	2
 onny	1
 ono	2
@@ -65828,7 +65760,6 @@ opéra	2
 opération	1
 opština	9
 oquaye	1
-or	41
 or10q1	1
 or52i1	1
 or8b2	1
@@ -66359,7 +66290,6 @@ otero	2
 otha	1
 othaya	1
 othello	2
-other	29
 others	2
 otherworld	1
 othman	1
@@ -66449,7 +66379,6 @@ oume	1
 oun	1
 ouoro	1
 oupia	1
-our	37
 ourahou	1
 ouran	1
 ouratea	1
@@ -66457,15 +66386,12 @@ ourdis	1
 ourebi	1
 ourebia	1
 ourmedia	1
-ours	1
-ourselves	3
 ouryuuken	1
 ouschan	1
 ouse	2
 ouseburn	1
 ouseley	1
 oustaz	1
-out	83
 outa	1
 outagamie	1
 outback	2
@@ -66523,7 +66449,6 @@ ovation	1
 ovatum	1
 ovcinnikovs	1
 ove	3
-over	32
 overachiever	1
 overactive	1
 overall	1
@@ -66598,7 +66523,6 @@ owiny	1
 owj	1
 owl	16
 owls	1
-own	14
 owned	5
 owner	1
 owners	1
@@ -77219,7 +77143,6 @@ rœulx	1
 rūmī	1
 rūta	1
 rəzvan	1
-s	664
 s&p	4
 s&w	2
 s'gaw	1
@@ -77861,7 +77784,6 @@ sambuco	1
 sambucus	1
 sambuor	1
 sambyeolcho	1
-same	6
 sameach	1
 samed	1
 samedan	1
@@ -80567,7 +80489,6 @@ shchekina	1
 shcherbakty	1
 shcompact	1
 shcurrer	1
-she	10
 she's	4
 shea	4
 shealy	1
@@ -81061,7 +80982,6 @@ shotwell	2
 shou	5
 shougaku	1
 shoukou	1
-should	1
 shoulder	3
 shoulderblades	1
 shouldn't	1
@@ -82555,7 +82475,6 @@ snuff	1
 snuppy	1
 snushanerne	1
 snyder	10
-so	47
 soa	1
 soak	1
 soaker	1
@@ -82857,7 +82776,6 @@ sombra	1
 sombras	1
 sombre	1
 sombrero	1
-some	11
 somebody	2
 someone	4
 someplace	1
@@ -85210,7 +85128,6 @@ succos	1
 succubus	1
 suceava	1
 suceviţa	1
-such	3
 sucha	1
 suchacek	1
 suchitépequez	1
@@ -86425,7 +86342,6 @@ słonowice	1
 słubice	1
 səhləbad	1
 sḵwx̱wú7mesh	1
-t	210
 t&p	2
 t'aepong	1
 t'ang	2
@@ -88109,7 +88025,6 @@ thameside	1
 thamesway	1
 thamiraparani	1
 thammasith	1
-than	5
 thana	3
 thanapati	1
 thanases	1
@@ -88141,7 +88056,6 @@ tharon	1
 tharp	1
 tharthara	1
 tharu	1
-that	49
 that's	23
 thatched	2
 thatcher	1
@@ -88168,7 +88082,6 @@ thazri'a	1
 thaïs	1
 thbs1	1
 thchb	1
-the	3264
 theaghenis	1
 theal	1
 theart	1
@@ -88191,7 +88104,6 @@ theft	2
 thehungersite	1
 theif	1
 theil	1
-their	6
 theisinger	1
 theissen	1
 thelema	1
@@ -88201,12 +88113,10 @@ theloderma	1
 thelon	1
 theloune	1
 thelxinoë	1
-them	4
 theme	19
 themed	1
 themepark	2
 themes	4
-then	8
 thenarasu	1
 theo	11
 theobald	3
@@ -88251,7 +88161,6 @@ therapeutics	1
 therapist	2
 theraputic	1
 therapy	20
-there	15
 there's	3
 therebucks	1
 therefore	2
@@ -88285,7 +88194,6 @@ thersby	1
 thes	1
 thesauri	1
 thesaurus	1
-these	9
 theseos	1
 theses	2
 thesis	3
@@ -88302,7 +88210,6 @@ thetis	1
 theurge	1
 thevaram	1
 theweathernetwork	1
-they	6
 they're	3
 theyskens	1
 the…	1
@@ -88374,7 +88281,6 @@ thiruvananthapuram	1
 thiruvenkatanathapuram	1
 thiruvilayadal	1
 thiry	1
-this	74
 thisbe	1
 thisisme	1
 thiske	1
@@ -88467,7 +88373,6 @@ thorsteinn	1
 thorton	1
 thorwald	1
 thos	1
-those	4
 thoth	2
 thotobolosaurus	1
 thou	3
@@ -88525,7 +88430,6 @@ throne	7
 throop	1
 throoptown	1
 throsby	1
-through	9
 throw	4
 throwing	3
 thrown	2
@@ -89094,7 +88998,6 @@ tng	4
 tnn	1
 tnnt2	1
 tns	1
-to	123
 to2e	1
 toa	4
 toad	10
@@ -89400,7 +89303,6 @@ tontu	1
 tonus	1
 tony	56
 tonya	1
-too	27
 tooher	1
 took	2
 tookyoo	2
@@ -91765,7 +91667,6 @@ undead	1
 undecidability	1
 undecimber	1
 undelstvedt	1
-under	44
 underage	1
 underbool	1
 underdog	3
@@ -92015,7 +91916,6 @@ unterseeboot	13
 unterseebootsflottille	1
 unterturkheim	1
 unthank	1
-until	1
 untitled	8
 untranslated	1
 untrue	1
@@ -92032,7 +91932,6 @@ unzaga	1
 un–habitat	1
 uofm	1
 uozu	1
-up	54
 up\"	1
 upa	2
 upack	1
@@ -93512,7 +93411,6 @@ verunsicherung	1
 vervloesem	1
 verwaltungsgemeinschaft	3
 verwüstung	1
-very	19
 verzasca	1
 verzeichnis	1
 verzeille	1
@@ -95193,7 +95091,6 @@ wartsila	1
 warty	3
 warwick	12
 warwickshire	4
-was	18
 wasatch	2
 wasdow	1
 waseca	1
@@ -95444,7 +95341,6 @@ wdr6	1
 wds	1
 wdvm	1
 wdwb	1
-we	54
 we'ar	1
 we'll	1
 we're	6
@@ -95737,7 +95633,6 @@ werchardt	1
 werdel	1
 werden	1
 werder	1
-were	11
 wererat	1
 werewolf	4
 werft	1
@@ -95916,7 +95811,6 @@ wharnsby	1
 wharton	5
 whas	1
 whasango	1
-what	54
 what's	13
 whateley	1
 whatever	3
@@ -95948,8 +95842,6 @@ wheelwright	1
 wheezy	1
 whelan	2
 wheldon	1
-when	32
-where	26
 where's	3
 wherever	1
 wherryman's	1
@@ -95957,7 +95849,6 @@ whetton	2
 whh	1
 whibbs	1
 whibley	1
-which	3
 whicker	1
 whicker's	1
 whiddon	1
@@ -96065,14 +95956,12 @@ whitworth	2
 whjm	1
 whkn	1
 whl	2
-who	62
 who's	9
 whodunit	1
 whoever	1
 whole	7
 wholesale	4
 wholy	2
-whom	1
 whonamedit	1
 whonnock	1
 whoopee	1
@@ -96091,7 +95980,6 @@ whtl	1
 whtx	1
 whud	1
 whuten	1
-why	13
 whymant	1
 whys	1
 whyte	3
@@ -96290,7 +96178,6 @@ wilkinsburg	1
 wilkinson	10
 wilkinsons	1
 wilko	1
-will	40
 will\"	1
 willa	1
 willam	1
@@ -96562,7 +96449,6 @@ witches	3
 witchita	1
 witchking	1
 witeout	1
-with	54
 witham	1
 withanage	1
 withdrawal	1
@@ -98226,7 +98112,6 @@ yosukeyoshida	1
 yosumin	1
 yosvany	1
 yot	1
-you	202
 you'd	1
 you'll	1
 you're	24
@@ -98252,12 +98137,8 @@ younglife	1
 youngsbury	1
 youngsma	1
 youngstown	3
-your	90
 yourcenar	1
 youri	1
-yours	2
-yourself	4
-yourselves	1
 yousafzai	1
 yousai	1
 yousei	1

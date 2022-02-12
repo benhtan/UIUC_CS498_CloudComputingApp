@@ -1,0 +1,5 @@
+county	1020
+school	1065
+new	1077
+de	1684
+list	1948
