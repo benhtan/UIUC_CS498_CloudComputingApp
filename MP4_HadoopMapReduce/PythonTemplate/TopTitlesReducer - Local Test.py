@@ -3,11 +3,20 @@ import sys
 
 f = open('partA_top5_mapper_output.txt', encoding="utf8")
 
-# input comes from STDIN
+words = []
+
 for line in f:
-    # TODO
-    word = line.rstrip('\n')
-    print(word)
-    # print('%s\t%s' % (  ,  )) print as final output
+       line = line.rstrip('\n')
+       words.append(line.split('\t'))
+
+words.sort(key=lambda t: int(t[1]))
+
+# print(words[-5:])
+#TODO
+for word in words[-5:]:
+       output = f'{word[0]}\t{word[1]}'
+       print(output)
+    #    n.write(output + '\n')
+# print('%s\t%s' % (  ,  )) pass this output to reducer
 
 f.close()

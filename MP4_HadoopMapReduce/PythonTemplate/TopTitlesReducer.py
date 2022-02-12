@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 import sys
 
+words = []
 
-
-# input comes from STDIN
 for line in sys.stdin:
-    # TODO
-    word = line.rstrip('\n')
-    print(word)
-    # print('%s\t%s' % (  ,  )) print as final output
+       line = line.rstrip('\n')
+       words.append(line.split('\t'))
+
+words.sort(key=lambda t: int(t[1]))
+
+for word in words[-5:]:
+       output = f'{word[0]}\t{word[1]}'
+       print(output)
