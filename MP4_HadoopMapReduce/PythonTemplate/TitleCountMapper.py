@@ -40,7 +40,7 @@ def replaceDelimitersWithSpace(w, d):
 # with open(textPath, encoding="utf8") as f:      # comment before submit
 #     text = [line.rstrip('\n') for line in f]    # comment before submit
 
-# f = open('outputText.txt', 'w', encoding="utf8")    # comment before submit
+# f = open('outputText-debug output.txt', 'w', encoding="utf8")    # comment before submit
 
 for line in text:
       

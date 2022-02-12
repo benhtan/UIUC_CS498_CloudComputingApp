@@ -21,7 +21,7 @@ for line in text:
         word_counter[word_count[0]] = 1
 
 # print(word_counter)
-# f = open('wordCount.txt', 'w', encoding="utf8")     # comment before submit
+# f = open('wordCount-debug output.txt', 'w', encoding="utf8")     # comment before submit
 
 for word in word_counter:
     output = f'{word}\t{word_counter[word]}'
