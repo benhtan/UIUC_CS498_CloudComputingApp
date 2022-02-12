@@ -15,7 +15,16 @@ for line in f:
   
   data[child] = True
 
-n.write(str(data))
+orphan = []
+
+for link in data:
+      if data[link] == False:
+            orphan.append(int(link))
+
+sorted_orphan = sorted(orphan)
+
+for link in sorted_orphan:
+  n.write(str(link) + '\n')
 #TODO
 # print(xx) print as final output
 
