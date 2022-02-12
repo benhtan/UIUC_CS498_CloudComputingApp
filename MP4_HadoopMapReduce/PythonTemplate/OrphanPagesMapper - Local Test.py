@@ -8,7 +8,7 @@ for line in f:
   # TODO
   line = line.rstrip('\n').split(': ')
   parent = line[0]
-  childern = line[1].split(' ')
+  childern = line[1].split()
 
   for child in childern:
         output = f'{parent}\t{child}'

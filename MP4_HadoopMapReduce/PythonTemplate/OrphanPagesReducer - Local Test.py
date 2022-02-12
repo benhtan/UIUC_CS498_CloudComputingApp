@@ -10,10 +10,11 @@ for line in f:
   # TODO
   parent, child = line.rstrip('\n').split('\t')
   
-  if parent not in data:
-        data[parent] = False
-  
-  data[child] = True
+  if parent != child:
+      if parent not in data:
+            data[parent] = False
+      
+      data[child] = True
 
 orphan = []
 
