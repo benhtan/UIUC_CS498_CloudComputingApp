@@ -5,10 +5,10 @@ import string
 
 
 
-# stopWordsPath = sys.argv[1]
-# delimitersPath = sys.argv[2]
-stopWordsPath = 'stopwords.txt'     # comment before submit
-delimitersPath = 'delimiters.txt'   # comment before submit
+stopWordsPath = sys.argv[1]       # needed for submission
+delimitersPath = sys.argv[2]      # needed for submission
+# stopWordsPath = 'stopwords.txt'     # comment before submit
+# delimitersPath = 'delimiters.txt'   # comment before submit
 
 stopWords = []
 delimiters = []
@@ -26,9 +26,9 @@ with open(delimitersPath) as f:
     delimiters = [c for c in delimiters]
     # print(delimiters) # comment before submit
 
-# text = sys.stdin
-text = []               # comment before submit
-textPath = 'input.txt'  # comment before submit
+text = sys.stdin        # needed for submission
+# text = []               # comment before submit
+# textPath = 'input.txt'  # comment before submit
 
 def replaceDelimitersWithSpace(w, d):
     for e in d:
@@ -37,10 +37,10 @@ def replaceDelimitersWithSpace(w, d):
 
 # print(replaceDelimitersWithSpace('Benson_&_Hedges_Match_Play_Championship',delimiters))   # comment before submit
 
-with open(textPath, encoding="utf8") as f:      # comment before submit
-    text = [line.rstrip('\n') for line in f]    # comment before submit
+# with open(textPath, encoding="utf8") as f:      # comment before submit
+#     text = [line.rstrip('\n') for line in f]    # comment before submit
 
-f = open('outputText.txt', 'w', encoding="utf8")    # comment before submit
+# f = open('outputText.txt', 'w', encoding="utf8")    # comment before submit
 
 for line in text:
       
@@ -50,9 +50,9 @@ for line in text:
     for word in word_list:
         if word not in stopWords:
             output = word.lower() + '\t' + '1'
-            # print(output)             # needed for submission
-            f.write(output + '\n')      # comment before submit
+            print(output)             # needed for submission
+            # f.write(output + '\n')      # comment before submit
 
     # print('%s\t%s' % (  ,  )) pass this output to reducer
     
-f.close()   # comment before submit
+# f.close()   # comment before submit
