@@ -5,7 +5,9 @@ f = open('partD_LinkCount_reducer_debug output.txt', 'r', encoding="utf8")
 n = open('partD_TopPopularLinks_mapper_debug output.txt', 'w', encoding="utf8")
 
 for line in f:
-       n.write(line)
+       link, count = line.rstrip('\n').split()
+       output = f'{link}\t{count}\n'
+       n.write(output)
 
 
 #TODO

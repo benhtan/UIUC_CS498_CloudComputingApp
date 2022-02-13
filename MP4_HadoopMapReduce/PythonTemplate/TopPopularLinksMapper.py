@@ -7,9 +7,9 @@ import sys
 
 
 for line in sys.stdin:
-
-       #TODO
-       print(line)
+       link, count = line.rstrip('\n').split()
+       output = f'{link}\t{count}'
+       print(output)
 
 
 #TODO
