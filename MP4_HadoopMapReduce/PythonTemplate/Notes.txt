@@ -4,4 +4,4 @@ Sort always has to be done just before result. Cannot pass sorted value from map
 
 Simulate hadoop locally by reading and writting to local text file.
 
-Access files on container using docker extension. One can also attach container files to local folder (experiment with this)
+Access files on container using docker extension (view and edit). One can also attach container files to local folder (experiment with this)
