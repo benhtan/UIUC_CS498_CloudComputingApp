@@ -1,0 +1,3 @@
+Mapper always has to parse input line by line and then reprint. Cannot just take line by line from input and print it out.
+
+Sort always has to be done just before result. Cannot pass sorted value from map to reducer or reducer to map.
