@@ -9,11 +9,15 @@ data = []
 # input comes from STDIN
 for line in f:
     # TODO
-    data.append(line.rstrip('\n'))
+    link, count = line.rstrip('\n').split()
+    data.append( (int(link), int(count)) )
     # n.write(str(data))
     # print('%s\t%s' % (  ,  )) print as final output
+
+data.sort( key=lambda t: (t[1], t[0]) )
+# n.write(str(data))
 for link in data[-10:]:
-    output = link + '\n'
+    output = f'{link[0]}\t{link[1]}\n'
     n.write(output)
 
 f.close()
