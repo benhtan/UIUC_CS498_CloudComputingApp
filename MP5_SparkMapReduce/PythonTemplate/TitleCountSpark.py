@@ -6,7 +6,6 @@
 
 import sys
 from pyspark import SparkConf, SparkContext
-import re
 
 stopWordsPath = sys.argv[1]
 delimitersPath = sys.argv[2]
@@ -45,7 +44,8 @@ lines = sc.textFile(sys.argv[3], 1)
 
 #TODO
 res = lines.flatMap(lambda line: titleToWords(line))
-res = res.take(50)
+res = res.map(lambda word: (word,1)).reduceByKey(lambda a, b: a + b)
+res = res.take(500)
 
 outputFile = open(sys.argv[4],"w",encoding="utf8")
 
