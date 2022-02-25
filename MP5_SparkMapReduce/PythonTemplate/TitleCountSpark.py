@@ -21,13 +21,21 @@ with open(stopWordsPath) as f:
 with open(delimitersPath) as f:
     #TODO
     delimiters = f.read().rstrip('\n')
-    # delimiters = [c for c in delimiters]
     
-def replaceDelimitersWithSpace(w):
+def titleToWords(title):
     global delimiters
+    global stopWords
+    
     for e in delimiters:
-        w = w.replace(e, ' ')
-    return w.lower()
+        title = title.replace(e, ' ')
+    
+    title = title.lower().split()
+    
+    for e in title:
+        if e in stopWords:
+            title.remove(e)
+    
+    return title
 
 conf = SparkConf().setMaster("local").setAppName("TitleCount")
 conf.set("spark.driver.bindAddress", "127.0.0.1")
@@ -36,7 +44,8 @@ sc = SparkContext(conf=conf)
 lines = sc.textFile(sys.argv[3], 1)
 
 #TODO
-res = lines.map(lambda line: replaceDelimitersWithSpace(line)).collect()
+res = lines.flatMap(lambda line: titleToWords(line))
+res = res.take(50)
 
 outputFile = open(sys.argv[4],"w",encoding="utf8")
 
