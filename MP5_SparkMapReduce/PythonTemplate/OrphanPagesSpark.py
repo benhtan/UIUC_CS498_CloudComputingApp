@@ -30,7 +30,8 @@ output = open(sys.argv[2], "w")
 #TODO
 #write results to output file. Foramt for each line: (line + "\n")
 for line in lines:
-    output.write(f'line\n')
+    output.write(f'{line}\n')
 
 sc.stop()
 
+# spark-submit OrphanPagesSpark.py dataset/links/ partC
