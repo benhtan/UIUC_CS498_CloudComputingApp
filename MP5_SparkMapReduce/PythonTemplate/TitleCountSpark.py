@@ -25,8 +25,6 @@ def titleToWords(title):
     global delimiters
     global stopWords
     
-    print(stopWords)
-    
     for e in delimiters:
         title = title.replace(e, ' ')
     
@@ -36,8 +34,9 @@ def titleToWords(title):
         if e in stopWords:
             title.remove(e)
 
+    # not sure why I have to remove the again here
     if 'the' in title:
-        print(f'######### {title}')
+        title.remove('the')
     
     return title
 
@@ -51,12 +50,13 @@ lines = sc.textFile(sys.argv[3], 1)
 res = lines.flatMap(lambda line: titleToWords(line))
 res = res.map(lambda word: (word,1)).reduceByKey(lambda a, b: a + b)
 res = res.takeOrdered(10, key=lambda x: -x[1])
+res2 = sorted(res, key=lambda i: (i[1], i[0]))
 
 outputFile = open(sys.argv[4],"w",encoding="utf8")
 
 #TODO
 #write results to output file. Foramt for each line: (line +"\n")
-for e in res:    
+for e in res2:    
     outputFile.write(f'{e}\n')
 
 outputFile.close()
