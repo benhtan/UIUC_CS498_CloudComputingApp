@@ -11,10 +11,10 @@ lines = sc.textFile(sys.argv[1], 1)
 #TODO
 def parentChild(line):
     line = line.rstrip('\n').split(': ')
-    parent = int(line[0])
+    parent = line[0]
     childern = line[1].split()
-    childern = [int(e) for e in childern]
-    childern = [child for child in childern if child != parent]
+    # childern = [int(e) for e in childern]   # convert to int
+    # childern = [child for child in childern if child != parent]     # remove self link pages
     
     res = [(parent, 0)]
     
@@ -31,7 +31,7 @@ output = open(sys.argv[2], "w")
 #TODO
 #write results to output file. Foramt for each line: (line + "\n")
 for line in lines:
-    output.write(f'{line}\n')
+    output.write(f'{line[0]}\n')
 
 sc.stop()
 
