@@ -24,7 +24,8 @@ def parentChild(line):
     return res
 
 lines = lines.flatMap(lambda line: parentChild(line)).reduceByKey(lambda a, b: a + b)
-lines = lines.take(500)
+lines = lines.takeOrdered(10, lambda line: -line[1])
+lines = sorted(lines, key=lambda line: line[0])
 
 output = open(sys.argv[2], "w")
 
@@ -32,7 +33,8 @@ output = open(sys.argv[2], "w")
 #write results to output file. Foramt for each line: (key + \t + value +"\n")
 
 for line in lines:
-    output.write(f'{line}\n')
+    output.write(f'{line[0]}\t{line[1]}\n')
 
 sc.stop()
 
+# spark-submit TopPopularLinksSpark.py dataset/links/ partD
