@@ -37,14 +37,17 @@ output = open(sys.argv[3], "w")
 
 #TODO
 #write results to output file. Foramt for each line: (key + \t + value +"\n")
-lines = lines.join(leagueIds).map(lambda e: (e[1][0], e[0]))
-lines = lines.take(20)
+lines = lines.join(leagueIds).map(lambda e: (e[0], e[1][0]))
+lines = lines.collect()
+lines = sorted(lines, key=lambda line: line[1])
+lines = [(line[0], i) for i, line in enumerate(lines)]
+lines = sorted(lines, key=lambda line: line[0])
 
 for line in lines:
-    output.write(f'{line}\n')
+    output.write(f'{line[0]}\t{line[1]}\n')
     
-for id in leagueIds.take(10):
-    output.write(f'ID: {id}\n')
+# for id in leagueIds.take(10):
+#     output.write(f'ID: {id}\n')
 
 sc.stop()
 
