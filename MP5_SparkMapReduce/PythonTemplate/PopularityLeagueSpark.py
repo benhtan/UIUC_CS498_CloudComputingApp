@@ -29,6 +29,7 @@ lines = lines.flatMap(lambda line: parentChild(line)).reduceByKey(lambda a, b: a
 
 
 leagueIds = sc.textFile(sys.argv[2], 1)
+leagueIds = leagueIds.map(lambda id: (id,0))
 
 #TODO
 
@@ -36,10 +37,14 @@ output = open(sys.argv[3], "w")
 
 #TODO
 #write results to output file. Foramt for each line: (key + \t + value +"\n")
-lines = lines.takeOrdered(10, lambda line: -line[1])
+lines = lines.join(leagueIds).map(lambda e: (e[1][0], e[0]))
+lines = lines.take(20)
 
 for line in lines:
-    output.write(f'{line[0]}\t{line[1]}\n')
+    output.write(f'{line}\n')
+    
+for id in leagueIds.take(10):
+    output.write(f'ID: {id}\n')
 
 sc.stop()
 
