@@ -14,6 +14,7 @@ def parentChild(line):
     parent = int(line[0])
     childern = line[1].split()
     childern = [int(e) for e in childern]
+    childern = [child for child in childern if child != parent]
     
     res = [(parent, 0)]
     
@@ -22,8 +23,8 @@ def parentChild(line):
         
     return res
 
-lines = lines.flatMap(lambda line: parentChild(line))
-lines = lines.take(500)
+lines = lines.flatMap(lambda line: parentChild(line)).reduceByKey(lambda a, b: a + b).filter(lambda line: line[1] == 0)
+lines = lines.takeOrdered(lines.count())
 
 output = open(sys.argv[2], "w")
 
