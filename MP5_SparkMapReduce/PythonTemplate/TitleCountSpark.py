@@ -25,6 +25,8 @@ def titleToWords(title):
     global delimiters
     global stopWords
     
+    print(stopWords)
+    
     for e in delimiters:
         title = title.replace(e, ' ')
     
@@ -33,6 +35,9 @@ def titleToWords(title):
     for e in title:
         if e in stopWords:
             title.remove(e)
+
+    if 'the' in title:
+        print(f'######### {title}')
     
     return title
 
@@ -45,7 +50,7 @@ lines = sc.textFile(sys.argv[3], 1)
 #TODO
 res = lines.flatMap(lambda line: titleToWords(line))
 res = res.map(lambda word: (word,1)).reduceByKey(lambda a, b: a + b)
-res = res.take(500)
+res = res.takeOrdered(10, key=lambda x: -x[1])
 
 outputFile = open(sys.argv[4],"w",encoding="utf8")
 
