@@ -50,14 +50,14 @@ lines = sc.textFile(sys.argv[3], 1)
 res = lines.flatMap(lambda line: titleToWords(line))
 res = res.map(lambda word: (word,1)).reduceByKey(lambda a, b: a + b)
 res = res.takeOrdered(10, key=lambda x: -x[1])
-res2 = sorted(res, key=lambda i: (i[1], i[0]))
+res2 = sorted(res, key=lambda i: i[0])
 
 outputFile = open(sys.argv[4],"w",encoding="utf8")
 
 #TODO
 #write results to output file. Foramt for each line: (line +"\n")
 for e in res2:    
-    outputFile.write(f'{e}\n')
+    outputFile.write(f'{e[0]}\t{e[1]}\n')
 
 outputFile.close()
 
