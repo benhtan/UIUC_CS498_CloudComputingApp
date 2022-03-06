@@ -15,11 +15,16 @@ USE mp6;
 # create heros table
 CREATE TABLE heroes
 (
-    id              INT unsigned NOT NULL AUTO_INCREMENT,
+    id              INT unsigned NOT NULL,
     hero            VARCHAR(150) NOT NULL,
     power           VARCHAR(150) NOT NULL,
     name            VARCHAR(150) NOT NULL,
     xp              INT unsigned NOT NULL,
-    color           VARCHAR(150) NOT NULL,
-    PRIMARY KEY     (id)
+    color           VARCHAR(150) NOT NULL
 );
+
+# load data
+LOAD DATA FROM S3 's3://cca-mp6-aurora-elasticache/mp6input.csv' 
+    INTO TABLE heroes
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n';
