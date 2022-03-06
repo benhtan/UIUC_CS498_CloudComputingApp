@@ -1,0 +1,3 @@
+# Connect to db cluster writer
+mysql -h cca-mp6-aurora-elasticache.cluster-cz3u9mnryq5p.us-east-1.rds.amazonaws.com -P 3306 -u admin -p
+
