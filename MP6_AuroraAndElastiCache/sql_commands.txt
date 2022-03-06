@@ -1,3 +1,25 @@
+# these commands are send using EC2 instance through mysql
+
 # Connect to db cluster writer
 mysql -h cca-mp6-aurora-elasticache.cluster-cz3u9mnryq5p.us-east-1.rds.amazonaws.com -P 3306 -u admin -p
 
+# show existing database
+SHOW DATABASES;
+
+# Create db
+CREATE DATABASE mp6;
+
+# make mp6 default database
+USE mp6;
+
+# create heros table
+CREATE TABLE heroes
+(
+    id              INT unsigned NOT NULL AUTO_INCREMENT,
+    hero            VARCHAR(150) NOT NULL,
+    power           VARCHAR(150) NOT NULL,
+    name            VARCHAR(150) NOT NULL,
+    xp              INT unsigned NOT NULL,
+    color           VARCHAR(150) NOT NULL,
+    PRIMARY KEY     (id)
+);
