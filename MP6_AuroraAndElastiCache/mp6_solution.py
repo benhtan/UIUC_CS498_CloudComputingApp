@@ -46,26 +46,36 @@ class DB:
             self.mysql.commit()
 
 def read(use_cache, indices, Database, Cache):
+    result = []
     
-    if use_cache:
-        # read from cache with matching indices (could be multiple)
-        # if miss detected, query from db
-        pass
-    else:
-        # query from db
-        pass
+    for i in indices:
+        if use_cache:
+            # read from cache with matching indices (could be multiple)
+            # if miss detected, query from db
+            res = Cache.hgetall(i)
+            res['id'] = i
+            if res:
+                result.append(res)
+        
+        if use_cache == False or res == None:
+            pass
+        
+    print(result)
+    return result
     
     
 def write(use_cache, sqls, Database, Cache):
     
     # write to db
     for data in sqls:
-        Database.insert(idx=None, data=data)
+        idx = Database.get_idx('heroes')
+        Database.insert(idx=idx, data=data)
     
-    if use_cache:
-        # write through strategy
-        # write to cache
-        pass
+        if use_cache:
+            # write through strategy
+            # write to cache
+            Cache.hmset(idx, data)
+            # Cache.expire(idx, TTL)
 
 
 def lambda_handler(event, context):
