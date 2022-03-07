@@ -47,20 +47,32 @@ class DB:
 
 def read(use_cache, indices, Database, Cache):
     result = []
+    fromCache = {}
     
     for i in indices:
         if use_cache:
             # read from cache with matching indices (could be multiple)
             # if miss detected, query from db
             res = Cache.hgetall(i)
-            res['id'] = i
             if res:
                 result.append(res)
+                fromCache[i] = True
         
-        if use_cache == False or res == None:
-            pass
+        # print(res)
+        # query from db
+        if use_cache == False or len(res) == 0:
+            sql = f'SELECT * FROM heroes WHERE id={i}'
+            res = Database.query(sql)
+            if res:
+                result.append(res)
+                fromCache[i] = False
+                
+                # save to cache
+                Cache.hmset(i, res)
+                # Cache.expire(idx, TTL)
         
-    print(result)
+    # print(result)
+    print(fromCache)
     return result
     
     
@@ -69,6 +81,7 @@ def write(use_cache, sqls, Database, Cache):
     # write to db
     for data in sqls:
         idx = Database.get_idx('heroes')
+        data['id'] = idx
         Database.insert(idx=idx, data=data)
     
         if use_cache:
