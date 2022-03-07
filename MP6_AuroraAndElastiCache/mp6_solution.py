@@ -56,7 +56,7 @@ def read(use_cache, indices, Database, Cache):
             # res = Cache.hgetall(i)
             res = Cache.get(i)
             if res:
-                result.append(json.loads(res))
+                result.append(json.loads(res)[0])
                 fromCache[i] = True
         
         # print(res)
@@ -92,6 +92,9 @@ def write(use_cache, sqls, Database, Cache):
             Cache.set(idx, json.dumps(data))
             # Cache.expire(idx, TTL)
 
+def flush_cache(Cache):
+    for key in Cache.scan_iter():
+        Cache.delete(key)
 
 def lambda_handler(event, context):
     
@@ -107,6 +110,8 @@ def lambda_handler(event, context):
         sys.exit()
         
     Cache = redis.Redis.from_url(REDIS_URL)
+    
+    # flush_cache(Cache)  # debug tool to clear cache
     
     result = []
     if REQUEST == "read":
