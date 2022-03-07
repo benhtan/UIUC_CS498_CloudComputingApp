@@ -53,14 +53,15 @@ def read(use_cache, indices, Database, Cache):
         if use_cache:
             # read from cache with matching indices (could be multiple)
             # if miss detected, query from db
-            res = Cache.hgetall(i)
+            # res = Cache.hgetall(i)
+            res = Cache.get(i)
             if res:
-                result.append(res)
+                result.append(json.loads(res))
                 fromCache[i] = True
         
         # print(res)
         # query from db
-        if use_cache == False or len(res) == 0:
+        if use_cache == False or res == None:
             sql = f'SELECT * FROM heroes WHERE id={i}'
             res = Database.query(sql)
             if res:
@@ -68,11 +69,11 @@ def read(use_cache, indices, Database, Cache):
                 fromCache[i] = False
                 
                 # save to cache
-                Cache.hmset(i, res)
-                # Cache.expire(idx, TTL)
+                Cache.set(i, json.dumps(res))
+                # Cache.setex(i, TTL, json.dumps(res))
         
-    # print(result)
-    print(fromCache)
+    print(f'result: {result}')
+    print(f'fromCache: {fromCache}')
     return result
     
     
@@ -87,7 +88,8 @@ def write(use_cache, sqls, Database, Cache):
         if use_cache:
             # write through strategy
             # write to cache
-            Cache.hmset(idx, data)
+            # Cache.hmset(idx, data)
+            Cache.set(idx, json.dumps(data))
             # Cache.expire(idx, TTL)
 
 
