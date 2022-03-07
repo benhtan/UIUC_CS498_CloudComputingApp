@@ -5,12 +5,12 @@ import redis
 import pymysql
 
 
-DB_HOST = "database-3.cluster-ro-ck7lt9uxmu6g.us-east-1.rds.amazonaws.com"
+DB_HOST = "cca-mp6-aurora-elasticache.cluster-ro-cz3u9mnryq5p.us-east-1.rds.amazonaws.com"
 DB_USER = "admin"
 DB_PASS = "abc12345"
-DB_NAME = "mpdb"
-DB_TABLE = "herostb"
-REDIS_URL = "redis://elc-tutorial.tlzedr.ng.0001.use1.cache.amazonaws.com:6379"
+DB_NAME = "mp6"
+DB_TABLE = "heroes"
+REDIS_URL = "redis://cca-mp6-aurora-elasticache-redis-001.q4e5rk.0001.use1.cache.amazonaws.com:6379"
 
 TTL = 10
 

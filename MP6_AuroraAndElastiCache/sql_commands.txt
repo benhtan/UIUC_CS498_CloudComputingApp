@@ -28,3 +28,13 @@ LOAD DATA FROM S3 's3://cca-mp6-aurora-elasticache/mp6input.csv'
     INTO TABLE heroes
     FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n';
+
+# modify table
+ALTER TABLE heroes
+MODIFY id INT unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY;
+
+# test inserting
+INSERT INTO heroes ( hero, power, name, xp, color) VALUES ('no', 'code', 'ben', '333', 'yellow');
+
+# delete test
+DELETE FROM heroes WHERE name='ben';
