@@ -55,8 +55,9 @@ def read(use_cache, indices, Database, Cache):
             # if miss detected, query from db
             # res = Cache.hgetall(i)
             res = Cache.get(i)
+            print(f'res: {res}')
             if res:
-                result.append(json.loads(res)[0])
+                result.append(json.loads(res))
                 fromCache[i] = True
         
         # print(res)
@@ -65,11 +66,11 @@ def read(use_cache, indices, Database, Cache):
             sql = f'SELECT * FROM heroes WHERE id={i}'
             res = Database.query(sql)
             if res:
-                result.append(res)
+                result.append(res[0])
                 fromCache[i] = False
                 
                 # save to cache
-                Cache.set(i, json.dumps(res))
+                Cache.set(i, json.dumps(res[0]))
                 # Cache.setex(i, TTL, json.dumps(res))
         
     print(f'result: {result}')

@@ -27,7 +27,7 @@ CREATE TABLE heroes
 LOAD DATA FROM S3 's3://cca-mp6-aurora-elasticache/mp6input.csv' 
     INTO TABLE heroes
     FIELDS TERMINATED BY ','
-    LINES TERMINATED BY '\n';
+    LINES TERMINATED BY '\r\n';
 
 # modify table
 ALTER TABLE heroes
