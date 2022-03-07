@@ -38,3 +38,9 @@ INSERT INTO heroes ( hero, power, name, xp, color) VALUES ('no', 'code', 'ben', 
 
 # delete test
 DELETE FROM heroes WHERE name='ben';
+
+# delete certain id
+DELETE FROM heroes WHERE ID>25;
+
+# view all content of table
+SELECT * FROM heroes;

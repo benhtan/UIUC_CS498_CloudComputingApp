@@ -5,7 +5,7 @@ import redis
 import pymysql
 
 
-DB_HOST = "cca-mp6-aurora-elasticache.cluster-ro-cz3u9mnryq5p.us-east-1.rds.amazonaws.com"
+DB_HOST = "cca-mp6-aurora-elasticache.cluster-cz3u9mnryq5p.us-east-1.rds.amazonaws.com"  
 DB_USER = "admin"
 DB_PASS = "abc12345"
 DB_NAME = "mp6"
@@ -40,7 +40,7 @@ class DB:
             xp = data["xp"]
             color = data["color"]
             
-            sql = f"INSERT INTO herostb (`id`, `hero`, `power`, `name`, `xp`, `color`) VALUES ('{idx}', '{hero}', '{power}', '{name}', '{xp}', '{color}')"
+            sql = f"INSERT INTO heroes (`id`, `hero`, `power`, `name`, `xp`, `color`) VALUES ('{idx}', '{hero}', '{power}', '{name}', '{xp}', '{color}')"
 
             cursor.execute(sql)
             self.mysql.commit()
@@ -48,17 +48,23 @@ class DB:
 def read(use_cache, indices, Database, Cache):
     
     if use_cache:
+        # read from cache with matching indices (could be multiple)
+        # if miss detected, query from db
         pass
     else:
+        # query from db
         pass
     
     
 def write(use_cache, sqls, Database, Cache):
     
+    # write to db
+    for data in sqls:
+        Database.insert(idx=None, data=data)
+    
     if use_cache:
         # write through strategy
-        pass
-    else:
+        # write to cache
         pass
 
 
