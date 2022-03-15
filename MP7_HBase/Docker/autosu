@@ -1,0 +1,9 @@
+#!/usr/bin/expect -f
+
+set user [lindex $argv 0]
+
+spawn $user
+
+
+
+interact
