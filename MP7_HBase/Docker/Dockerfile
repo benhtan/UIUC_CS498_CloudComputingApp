@@ -43,7 +43,7 @@ ENV CLASSPATH=$CLASSPATH:/usr/local/phoenix/phoenix-client-hbase-1.6-4.16.1.jar
 
 COPY zoo.cfg /usr/local/zookeeper/conf/zoo.cfg
 COPY hbase-site.xml /usr/local/hbase/conf/hbase-site.xml
-RUN wget -O /usr/local/hbase/conf/hbase-env.sh https://raw.githubusercontent.com/UIUC-CS498-Cloud/MP7_HBase_Template/main/Docker/hbase-env.sh
+COPY hbase-env.sh /usr/local/hbase/conf/hbase-env.sh
 
 COPY auto* /usr/local/bin/
 RUN chmod 777 /usr/local/bin/auto*
@@ -60,3 +60,6 @@ RUN chmod a+rwx -R /usr/local/hbase/
 # Make vim nice
 RUN echo "set background=dark" >> ~/.vimrc
 
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git
