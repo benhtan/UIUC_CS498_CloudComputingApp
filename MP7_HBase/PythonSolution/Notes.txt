@@ -1,0 +1,6 @@
+Start zookeeper and hbase
+zkServer.sh start
+start-hbase.sh
+
+Start Thrift server
+hbase thrift start &
