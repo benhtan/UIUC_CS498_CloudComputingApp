@@ -1,3 +1,5 @@
+cd MP7_HBase_Template/PythonTemplate
+
 Start zookeeper and hbase
 zkServer.sh start
 start-hbase.sh
