@@ -6,3 +6,13 @@ start-hbase.sh
 
 Start Thrift server
 hbase thrift start &
+
+Combined
+cd MP7_HBase_Template/PythonTemplate
+zkServer.sh start
+start-hbase.sh
+hbase thrift start &
+
+
+Run sql
+/usr/local/phoenix/bin/sqlline.py "$(cat url.txt)" phoenix.sql
