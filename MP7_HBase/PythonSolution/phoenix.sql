@@ -4,5 +4,5 @@ SELECT p."professional"."name" as "Name1", p1."professional"."name" as "Name2", 
 FROM "powers" AS p
 INNER JOIN "powers" as p1
 ON p."personal"."power" = p1."personal"."power"
+WHERE p."personal"."hero" = 'yes' AND p1."personal"."hero" = 'yes'
 ;
--- WHERE p1."hero" = 'yes' AND p2."hero" = 'yes';
