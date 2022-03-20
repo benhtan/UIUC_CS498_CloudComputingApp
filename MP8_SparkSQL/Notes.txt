@@ -1,1 +1,5 @@
 cd MP8_SparkSQL_Template/python
+
+Helpful Links
+https://apache.googlesource.com/spark/+/master/examples/src/main/python/sql/basic.py#165
+https://spark.apache.org/docs/3.1.1/api/python/reference/pyspark.html
