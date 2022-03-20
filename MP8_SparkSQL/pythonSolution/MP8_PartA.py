@@ -14,7 +14,9 @@ gbooks = sc.textFile("gbooks").map(lambda t: t.split()).map( lambda t: ( t[0], i
 schema = StructType([ StructField("word", StringType()), StructField("count1", IntegerType()), StructField("count2", IntegerType()), StructField("count3", IntegerType()) ])
 
 gbooks_df = spark.createDataFrame(gbooks, schema)
-print(gbooks_df.collect())
+# print(gbooks_df.collect())
+
+gbooks_df.printSchema()
 
 ####
 # 1. Setup (10 points): Download the gbook file and write a function to load it in an RDD & DataFrame
