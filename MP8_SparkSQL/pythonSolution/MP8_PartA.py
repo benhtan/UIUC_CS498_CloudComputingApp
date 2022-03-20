@@ -8,10 +8,12 @@ sc = SparkContext()
 sqlContext = SQLContext(sc)
 spark = SparkSession(sc)
 
-gbooks = sc.textFile("gbooks").map(lambda t: t.split())
+gbooks = sc.textFile("gbooks").map(lambda t: t.split()).map( lambda t: ( t[0], int(t[1]), int(t[2]), int(t[3]) ) )
 # print(gbooks.collect())
 
-gbooks_df = spark.createDataFrame(gbooks)
+schema = StructType([ StructField("word", StringType()), StructField("count1", IntegerType()), StructField("count2", IntegerType()), StructField("count3", IntegerType()) ])
+
+gbooks_df = spark.createDataFrame(gbooks, schema)
 print(gbooks_df.collect())
 
 ####
