@@ -46,7 +46,8 @@ df2.createOrReplaceTempView('gbooks2')
 
 # output: 210
 
-results = spark.sql("SELECT count(word) FROM gbooks2 INNER JOIN gbooks2 ON count1")
+results = spark.sql("SELECT count(1) FROM gbooks2 AS g1 JOIN gbooks2 AS g2 ON g1.count1=g2.count1")
 
-results.show()
+# results.show()
+print(results.first()['count(1)'])
 
