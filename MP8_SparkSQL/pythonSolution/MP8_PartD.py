@@ -22,9 +22,9 @@ gbooks_df = spark.createDataFrame(gbooks, schema)
 # Creates a temporary view using the DataFrame
 gbooks_df.createOrReplaceTempView("gbooks_view")
 
-results = spark.sql("SELECT count(*) FROM gbooks_view WHERE word LIKE \'%ATTRIBUTE%\'")
+results = spark.sql("SELECT word, count(1) FROM gbooks_view GROUP BY word ORDER BY count(1) DESC")
 
-results.show()
+results.show(n=3)
 
 ####
 # 1. Setup (10 points): Download the gbook file and write a function to load it in an RDD & DataFrame
