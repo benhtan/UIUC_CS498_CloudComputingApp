@@ -6,7 +6,7 @@ url = "https://seorwrpmwh.execute-api.us-east-1.amazonaws.com/prod/mp-9"
 
 student = {
     "submitterEmail": "btan90@gmail.com", #<Your coursera account email>
-    "secret": "R1wWCQrtqcTjeHW3" #<Your secret token from coursera>
+    "secret": "haAQFnv07kG18MoW" #<Your secret token from coursera>
 }
 
 sql1_numFilteredEntries = 189 #<The count of the filtered entries from 3.3 SQL query 1>
