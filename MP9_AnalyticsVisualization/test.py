@@ -6,15 +6,15 @@ url = "https://seorwrpmwh.execute-api.us-east-1.amazonaws.com/prod/mp-9"
 
 student = {
     "submitterEmail": "btan90@gmail.com", #<Your coursera account email>
-    "secret": "fsEyVSfjjkR5TRQw" #<Your secret token from coursera>
+    "secret": "R1wWCQrtqcTjeHW3" #<Your secret token from coursera>
 }
 
-sql1_numFilteredEntries = 568 #<The count of the filtered entries from 3.3 SQL query 1>
-sql2_numFilteredEntries = 0 #<The count of the filtered entries from 3.3 SQL query 2>
+sql1_numFilteredEntries = 189 #<The count of the filtered entries from 3.3 SQL query 1>
+sql2_numFilteredEntries = 1277 #<The count of the filtered entries from 3.3 SQL query 2>
 
-viz0CsvPath = "SQL1.csv" #<Filepath for your tableau viz0 csv/tsv file>
-viz1CsvPath = "SQL1.csv" #<Filepath for your tableau viz1 csv/tsv file>
-viz2CsvPath = "SQL1.csv" #<Filepath for your tableau viz2 csv/tsv file>
+viz0CsvPath = "mp9-viz0.tsv" #<Filepath for your tableau viz0 csv/tsv file>
+viz1CsvPath = "mp9-viz1.tsv" #<Filepath for your tableau viz1 csv/tsv file>
+viz2CsvPath = "mp9-viz2.tsv" #<Filepath for your tableau viz2 csv/tsv file>
 
 # The column ordering in the tsv file may not be preserved when you export the data.
 # Therefore, please check and modify the respective column index below
