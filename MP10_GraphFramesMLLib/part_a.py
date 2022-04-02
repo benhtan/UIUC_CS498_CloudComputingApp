@@ -22,7 +22,7 @@ def get_connected_components(graphframe):
             result_dict[row['component']].append(row['id'])
     print(result_dict)
     # print(result.select("id", "component").orderBy("component").collect())
-    return [[]]
+    return [[result_dict[e] for e in result_dict]]
 
 
 if __name__ == "__main__":
@@ -45,5 +45,5 @@ if __name__ == "__main__":
     sc.setCheckpointDir("/tmp/connected-components")
 
     result = get_connected_components(g)
-    # for line in result:
-    #     print(' '.join(line))
+    for line in result:
+        print(' '.join(line))
