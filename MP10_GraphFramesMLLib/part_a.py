@@ -20,9 +20,10 @@ def get_connected_components(graphframe):
             result_dict[row['component']] = [row['id']]
         else:
             result_dict[row['component']].append(row['id'])
-    print(result_dict)
-    # print(result.select("id", "component").orderBy("component").collect())
-    return [[result_dict[e] for e in result_dict]]
+    # print(result_dict)
+    result = [result_dict[e] for e in result_dict]
+    # print(result)
+    return result
 
 
 if __name__ == "__main__":
