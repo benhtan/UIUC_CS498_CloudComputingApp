@@ -11,9 +11,23 @@ def get_shortest_distances(graphframe, dst_id):
     # Find shortest distances in the given graphframe to the vertex which has id `dst_id`
     # The result is a dictionary where key is a vertex id and the corresponding value is
     # the distance of this node to vertex `dst_id`.
-    res = graphframe.shortestPaths(landmarks=dst_id)
-    res.show()
-    return {}
+    res = graphframe.shortestPaths(landmarks=[dst_id]).collect()
+    # print(res)
+    res_dict = {}
+    
+    for e in res:
+        e = e.asDict()
+        # print(e['id'])
+        start = e['id']
+        end = -1
+        if e['distances']:
+            # print(e['distances'][dst_id])
+            end = e['distances'][dst_id]
+        
+        res_dict[start] = end
+        
+    # print(res_dict)
+    return res_dict
 
 
 if __name__ == "__main__":
