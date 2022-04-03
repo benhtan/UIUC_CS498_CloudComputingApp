@@ -44,8 +44,16 @@ def get_clusters(df, num_clusters, max_iterations, initialization_mode,
     # print("Cluster Centers: ")
     # for center in centers:
     #     print(center)
+    transformed = model.transform(df_kmeans).select('id', 'prediction').collect()
+    cluster = {}
     
-    return [[]]
+    for row in transformed:
+        if row['prediction'] not in cluster:
+            cluster[row['prediction']] = [row['id']]
+        else:
+            cluster[row['prediction']].append(row['id'])
+    
+    return [cluster[c] for c in cluster]
 
 
 def parse_line(line):
