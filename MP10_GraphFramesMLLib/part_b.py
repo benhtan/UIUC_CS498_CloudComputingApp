@@ -36,7 +36,15 @@ def get_clusters(df, num_clusters, max_iterations, initialization_mode,
     # print(df.show())
     vecAssembler = VectorAssembler(inputCols=FEATURE_COLUMN, outputCol="features")
     df_kmeans = vecAssembler.transform(df).select('id', 'features')
-    df_kmeans.show()
+    # df_kmeans.show()
+    kmeans = KMeans(k=num_clusters, maxIter=max_iterations, initMode=initialization_mode, seed=seed)
+    model = kmeans.fit(df_kmeans)
+    # centers = model.clusterCenters()
+
+    # print("Cluster Centers: ")
+    # for center in centers:
+    #     print(center)
+    
     return [[]]
 
 
