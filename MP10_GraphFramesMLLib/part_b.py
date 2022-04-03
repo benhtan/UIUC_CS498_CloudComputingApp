@@ -20,6 +20,8 @@ sc = SparkContext()
 spark = SparkSession(sc)
 sqlContext = SQLContext(sc)
 
+FEATURE_COLUMN = [f'val{i}' for i in range(1,12)]
+
 
 def get_clusters(df, num_clusters, max_iterations, initialization_mode,
                  seed):
@@ -53,21 +55,11 @@ if __name__ == "__main__":
     # print(rdd.collect())
 
     # TODO: Convert RDD into a dataframe
-    schema = StructType([
-        StructField("id", StringType(), True),
-        StructField("val2", FloatType(), True),
-        StructField("val3", FloatType(), True),
-        StructField("val4", FloatType(), True),
-        StructField("val5", FloatType(), True),
-        StructField("val6", FloatType(), True),
-        StructField("val7", FloatType(), True),
-        StructField("val8", FloatType(), True),
-        StructField("val9", FloatType(), True),
-        StructField("val10", FloatType(), True),
-        StructField("val11", FloatType(), True),
-        StructField("val12", FloatType(), True),
-    ])
-    df = spark.createDataFrame(rdd, schema)
+    fields = [StructField("id", StringType(), True)]
+    for f in FEATURE_COLUMN:
+        fields.append(StructField(f, FloatType(), True))
+    
+    df = spark.createDataFrame(rdd, StructType(fields))
     # print(df.collect())
 
     clusters = get_clusters(df, NUM_CLUSTERS, MAX_ITERATIONS,
