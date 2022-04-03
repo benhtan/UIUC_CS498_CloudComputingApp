@@ -4,6 +4,7 @@ from pyspark.ml.clustering import KMeans
 from pyspark.ml.linalg import Vectors
 import pyspark.sql.functions as F
 from pyspark.sql.types import *
+from pyspark.ml.feature import *
 
 ############################################
 #### PLEASE USE THE GIVEN PARAMETERS     ###
@@ -32,7 +33,10 @@ def get_clusters(df, num_clusters, max_iterations, initialization_mode,
     # For example, if the output is [["Mercedes", "Audi"], ["Honda", "Hyundai"]]
     # Then "Mercedes" and "Audi" should have the same cluster id, and "Honda" and
     # "Hyundai" should have the same cluster id
-    print(df.show())
+    # print(df.show())
+    vecAssembler = VectorAssembler(inputCols=FEATURE_COLUMN, outputCol="features")
+    df_kmeans = vecAssembler.transform(df).select('id', 'features')
+    df_kmeans.show()
     return [[]]
 
 
