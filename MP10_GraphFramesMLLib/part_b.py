@@ -53,7 +53,7 @@ if __name__ == "__main__":
     # print(rdd.collect())
 
     # TODO: Convert RDD into a dataframe
-    schema = StructField([
+    schema = StructType([
         StructField("id", StringType(), True),
         StructField("val2", FloatType(), True),
         StructField("val3", FloatType(), True),
