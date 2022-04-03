@@ -3,6 +3,7 @@ from pyspark.sql import SQLContext, SparkSession
 from pyspark.ml.clustering import KMeans
 from pyspark.ml.linalg import Vectors
 import pyspark.sql.functions as F
+from pyspark.sql.types import *
 
 ############################################
 #### PLEASE USE THE GIVEN PARAMETERS     ###
@@ -29,6 +30,7 @@ def get_clusters(df, num_clusters, max_iterations, initialization_mode,
     # For example, if the output is [["Mercedes", "Audi"], ["Honda", "Hyundai"]]
     # Then "Mercedes" and "Audi" should have the same cluster id, and "Honda" and
     # "Hyundai" should have the same cluster id
+    print(df.show())
     return [[]]
 
 
@@ -51,8 +53,22 @@ if __name__ == "__main__":
     # print(rdd.collect())
 
     # TODO: Convert RDD into a dataframe
-    df = spark.createDataFrame(rdd)
-    print(df.collect())
+    schema = StructField([
+        StructField("id", StringType(), True),
+        StructField("val2", FloatType(), True),
+        StructField("val3", FloatType(), True),
+        StructField("val4", FloatType(), True),
+        StructField("val5", FloatType(), True),
+        StructField("val6", FloatType(), True),
+        StructField("val7", FloatType(), True),
+        StructField("val8", FloatType(), True),
+        StructField("val9", FloatType(), True),
+        StructField("val10", FloatType(), True),
+        StructField("val11", FloatType(), True),
+        StructField("val12", FloatType(), True),
+    ])
+    df = spark.createDataFrame(rdd, schema)
+    # print(df.collect())
 
     clusters = get_clusters(df, NUM_CLUSTERS, MAX_ITERATIONS,
                             INITIALIZATION_MODE, SEED)
