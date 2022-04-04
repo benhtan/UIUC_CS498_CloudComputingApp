@@ -5,6 +5,7 @@ from pyspark.ml.linalg import Vectors
 from pyspark.sql.types import *
 from pyspark.ml.feature import *
 from pyspark.sql.functions import lit
+from pyspark.ml.evaluation import BinaryClassificationEvaluator
 
 sc = SparkContext()
 spark = SparkSession(sc)
@@ -40,16 +41,24 @@ def predict(df_train, df_test):
     # df_train_features.show()
     # df_test_features.show()
     
-    # add label column using indexer
-    df_train_features_label = df_train_features.withColumn('label', lit(0.0))    
+    # add label column using indexer. copy from target.
+    indexer = StringIndexer(inputCol='target', outputCol='label')
+    df_train_features_label = indexer.fit(df_train_features).transform(df_train_features)    
     df_test_features_label = df_test_features.withColumn('label', lit(0.0))
     # df_train_features_label.printSchema()
-    df_train_features_label.show()
-    df_test_features_label.show()
+    # df_train_features_label.show()
+    # df_test_features_label.show()
     
     # random forrest
-    # randomForestClassifier = RandomForestClassifier(numTrees=5, maxDepth=5)
-    # randomForestModel = randomForestClassifier.fit(df_train_features_label)
+    randomForestClassifier = RandomForestClassifier(numTrees=20, maxDepth=5, seed=3)
+    randomForestModel = randomForestClassifier.fit(df_train_features_label)
+    # print(randomForestModel.toDebugString)
+    df_prediction = randomForestModel.transform(df_test_features_label)
+    df_prediction.show()
+    
+    evaluator = BinaryClassificationEvaluator()
+    accuracy = evaluator.evaluate(df_prediction)
+    print(accuracy)
     
     return []
 
