@@ -42,7 +42,7 @@ def predict(df_train, df_test):
     # df_test.show()
 
     # add column label
-    df_test = df_test.withColumn('label', lit(0.0))
+    # df_test = df_test.withColumn('label', lit(0.0))
     # df_train.printSchema()
     # df_train.show()
     # df_test.show()
@@ -54,7 +54,7 @@ def predict(df_train, df_test):
     df_prediction = randomForestModel.transform(df_test)
     df_prediction.show()
     
-    evaluator = BinaryClassificationEvaluator()
+    evaluator = BinaryClassificationEvaluator(labelCol='prediction')
     accuracy = evaluator.evaluate(df_prediction)
     print(accuracy)
     
