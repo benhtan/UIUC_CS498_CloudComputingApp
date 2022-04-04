@@ -4,6 +4,7 @@ from pyspark.sql import SQLContext, SparkSession
 from pyspark.ml.linalg import Vectors
 from pyspark.sql.types import *
 from pyspark.ml.feature import *
+from pyspark.sql.functions import lit
 
 sc = SparkContext()
 spark = SparkSession(sc)
@@ -35,13 +36,20 @@ def predict(df_train, df_test):
     # add features column
     vecAssembler = VectorAssembler(inputCols=[f'f{i}' for i in range(1,9)], outputCol="features")
     df_train_features = vecAssembler.transform(df_train).select('target', 'features')
+    df_test_features = vecAssembler.transform(df_test).select('features')
     # df_train_features.show()
+    # df_test_features.show()
     
     # add label column using indexer
-    indexer = StringIndexer(inputCol='target', outputCol='label')
-    df_train_features_label = indexer.fit(df_train_features).transform(df_train_features)
-    df_train_features_label.printSchema()
+    df_train_features_label = df_train_features.withColumn('label', lit(0.0))    
+    df_test_features_label = df_test_features.withColumn('label', lit(0.0))
+    # df_train_features_label.printSchema()
     df_train_features_label.show()
+    df_test_features_label.show()
+    
+    # random forrest
+    # randomForestClassifier = RandomForestClassifier(numTrees=5, maxDepth=5)
+    # randomForestModel = randomForestClassifier.fit(df_train_features_label)
     
     return []
 
