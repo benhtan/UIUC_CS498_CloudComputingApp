@@ -48,11 +48,11 @@ def predict(df_train, df_test):
     # df_test.show()
     
     # random forrest
-    randomForestClassifier = RandomForestClassifier(numTrees=20, maxDepth=5, seed=3)
+    randomForestClassifier = RandomForestClassifier(numTrees=20, maxDepth=5, seed=373)
     randomForestModel = randomForestClassifier.fit(df_train)
     # print(randomForestModel.toDebugString)
     df_prediction = randomForestModel.transform(df_test)
-    df_prediction.show()
+    # df_prediction.show()
     
     res = df_prediction.select('prediction').collect()
     res = [e['prediction'] for e in res]
@@ -60,7 +60,7 @@ def predict(df_train, df_test):
     
     evaluator = BinaryClassificationEvaluator(labelCol='prediction')
     accuracy = evaluator.evaluate(df_prediction)
-    print(accuracy)
+    # print(accuracy)
     
     return res
 
