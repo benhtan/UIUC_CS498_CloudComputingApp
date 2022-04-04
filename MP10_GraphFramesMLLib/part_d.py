@@ -20,7 +20,7 @@ COLUMN = [
     StructField('f6', FloatType(), True),
     StructField('f7', FloatType(), True),
     StructField('f8', FloatType(), True),
-    StructField('target', FloatType(), True),
+    StructField('label', FloatType(), True),
 ]
 
 def predict(df_train, df_test):
@@ -36,24 +36,22 @@ def predict(df_train, df_test):
     
     # add features column
     vecAssembler = VectorAssembler(inputCols=[f'f{i}' for i in range(1,9)], outputCol="features")
-    df_train_features = vecAssembler.transform(df_train).select('target', 'features')
-    df_test_features = vecAssembler.transform(df_test).select('features')
-    # df_train_features.show()
-    # df_test_features.show()
-    
-    # add label column using indexer. copy from target.
-    indexer = StringIndexer(inputCol='target', outputCol='label')
-    df_train_features_label = indexer.fit(df_train_features).transform(df_train_features)    
-    df_test_features_label = df_test_features.withColumn('label', lit(0.0))
-    # df_train_features_label.printSchema()
-    # df_train_features_label.show()
-    # df_test_features_label.show()
+    df_train = vecAssembler.transform(df_train).select('label', 'features')
+    df_test = vecAssembler.transform(df_test).select('features')
+    # df_train.show()
+    # df_test.show()
+
+    # add column label
+    df_test = df_test.withColumn('label', lit(0.0))
+    # df_train.printSchema()
+    # df_train.show()
+    # df_test.show()
     
     # random forrest
     randomForestClassifier = RandomForestClassifier(numTrees=20, maxDepth=5, seed=3)
-    randomForestModel = randomForestClassifier.fit(df_train_features_label)
+    randomForestModel = randomForestClassifier.fit(df_train)
     # print(randomForestModel.toDebugString)
-    df_prediction = randomForestModel.transform(df_test_features_label)
+    df_prediction = randomForestModel.transform(df_test)
     df_prediction.show()
     
     evaluator = BinaryClassificationEvaluator()
