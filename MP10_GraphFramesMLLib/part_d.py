@@ -31,6 +31,18 @@ def predict(df_train, df_test):
 
     # Result: Result should be a list with the trained model's predictions
     # for all the test data points
+    
+    # add features column
+    vecAssembler = VectorAssembler(inputCols=[f'f{i}' for i in range(1,9)], outputCol="features")
+    df_train_features = vecAssembler.transform(df_train).select('target', 'features')
+    # df_train_features.show()
+    
+    # add label column using indexer
+    indexer = StringIndexer(inputCol='target', outputCol='label')
+    df_train_features_label = indexer.fit(df_train_features).transform(df_train_features)
+    df_train_features_label.printSchema()
+    df_train_features_label.show()
+    
     return []
 
 
@@ -45,7 +57,7 @@ def main():
 
     # TODO: Create dataframe from the RDD
     df_train = spark.createDataFrame(rdd_train, StructType(COLUMN))
-    df_train.show()
+    # df_train.show()
 
     raw_test_data = sc.textFile("dataset/test-features.data")
 
@@ -54,7 +66,7 @@ def main():
 
     # TODO:Create dataframe from RDD
     df_test = spark.createDataFrame(rdd_test, StructType(COLUMN[:-1]))
-    df_test.show()
+    # df_test.show()
 
     predictions = predict(df_train, df_test)
 
