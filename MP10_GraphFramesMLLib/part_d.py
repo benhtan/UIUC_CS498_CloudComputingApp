@@ -54,11 +54,15 @@ def predict(df_train, df_test):
     df_prediction = randomForestModel.transform(df_test)
     df_prediction.show()
     
+    res = df_prediction.select('prediction').collect()
+    res = [e['prediction'] for e in res]
+    # print(res)
+    
     evaluator = BinaryClassificationEvaluator(labelCol='prediction')
     accuracy = evaluator.evaluate(df_prediction)
     print(accuracy)
     
-    return []
+    return res
 
 
 def main():
