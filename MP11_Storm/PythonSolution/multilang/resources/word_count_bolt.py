@@ -16,7 +16,14 @@ class CountBolt(storm.BasicBolt):
         # TODO
         # Task: word count
         # Hint: using instance variable to tracking the word count
-        pass
+        # Get the word from the inbound tuple
+        word = tup.values[0]
+        # Increment the counter
+        self._counter[word] +=1
+        count = self._counter[word]
+        storm.logInfo("Emitting %s:%s" % (word, count))
+        # Emit the word and count
+        storm.emit([word, count])
         # End
 
 

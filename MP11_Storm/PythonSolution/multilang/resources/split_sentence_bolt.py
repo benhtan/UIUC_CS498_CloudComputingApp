@@ -1,6 +1,8 @@
 import storm
 import re
 
+tup = ('the cow jumped over the moon')
+print(re.split("[^a-zA-Z0-9-]", tup))
 
 class SplitBolt(storm.BasicBolt):
     # There's nothing to initialize here,
@@ -15,7 +17,10 @@ class SplitBolt(storm.BasicBolt):
         # TODO
         # Task: split sentence and emit words
         # Hint: split on "[^a-zA-Z0-9-]"
-        pass
+        words = re.split("[^a-zA-Z0-9-]", tup.values[0])
+        for word in words:
+            storm.logInfo("Emitting %s" % word)
+            storm.emit([word])
         # End
 
 
