@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>storm.example</groupId>
+  <artifactId>storm-example</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <storm.version>1.2.4</storm.version>
+  </properties>
+  <repositories>
+    <repository>
+      <id>clojars.org</id>
+      <url>http://clojars.org/repo</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.apache.storm/storm -->
+    <dependency>
+      <groupId>org.apache.storm</groupId>
+      <artifactId>storm-core</artifactId>
+      <version>${storm.version}</version>
+      <!-- keep storm out of the jar-with-dependencies -->
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.storm</groupId>
+      <artifactId>flux-core</artifactId>
+      <version>${storm.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.storm</groupId>
+      <artifactId>flux-wrappers</artifactId>
+      <version>${storm.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.storm</groupId>
+      <artifactId>storm-redis</artifactId>
+      <version>${storm.version}</version>
+      <type>jar</type>
+    </dependency>
+  </dependencies>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <transformers>
+            <!-- Keep us from getting a can't overwrite file error -->
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer"/>
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+            <!-- We're using Flux, so refer to it as main -->
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+              <mainClass>org.apache.storm.flux.Flux</mainClass>
+            </transformer>
+          </transformers>
+          <!-- Keep us from getting a bad signature error -->
+          <filters>
+            <filter>
+              <artifact>*:*</artifact>
+              <excludes>
+                <exclude>META-INF/*.SF</exclude>
+                <exclude>META-INF/*.DSA</exclude>
+                <exclude>META-INF/*.RSA</exclude>
+              </excludes>
+            </filter>
+          </filters>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>java</executable>
+          <includeProjectDependencies>true</includeProjectDependencies>
+          <includePluginDependencies>false</includePluginDependencies>
+          <classpathScope>compile</classpathScope>
+          <!-- Set mainClass as Flux, since we are using that -->
+          <mainClass>org.apache.storm.flux.Flux</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+    <resources>
+      <resource>
+        <directory>${basedir}/src/main/resources</directory>
+        <filtering>false</filtering>
+      </resource>
+      <!-- include the Python components -->
+      <resource>
+        <directory>${basedir}/multilang</directory>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+  </build>
+</project>

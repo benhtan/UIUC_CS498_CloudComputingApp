@@ -1,0 +1,64 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+---
+
+# topology definition
+# name to be used when submitting
+name: "part-D"
+
+# TODO
+# Task: implement your topology for part d
+
+# topology configuration
+# this will be passed to the submitter as a map of config options
+config:
+    storm.local.hostname: "localhost"
+    topology.max.task.parallelism: 3
+    # set this to true if you want to see more debug log
+    # set it to false before submitting
+    topology.debug: false
+    # redis configuration, useful in store bolt
+    redis:
+      host: "localhost"
+      port: 6379
+      db: 0
+      password: "uiuc_cs498_mp11"
+      timeout: 2000
+      # redis hash key for part D is "partDTopN"
+      hashKey: "partDTopN"
+    # Hint: you can set input file path here
+    # make sure it's "/tmp/data.txt" in your final submission
+
+    # Hint: set N here
+    # make sure it's 10 in your final submission
+
+# spout definitions
+spouts:
+
+# bolt definitions
+bolts:
+  # Hint: the new top N tracking bolt you need implement in this part is
+  # multilang/resources/top_n_finder_bolt.py
+  # You need to load N from conf when initialize the bolt
+
+  # Hint: change the store bolt to store the top-N words, for which you need to implement 
+  # multilang/resources/top_n_store_bolt.py
+
+# stream definitions
+# stream definitions define connections between spouts and bolts.
+streams:
+  # Hint: add new top N finder bolt into the topology
