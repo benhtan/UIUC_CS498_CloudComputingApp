@@ -11,6 +11,8 @@ snow white and the seven dwarfs
 i am at two with nature
 """.strip().split('\n')
 
+# print(random.choice(SENTENCES))
+
 
 class SentenceSpout(storm.Spout):
     def initialize(self, conf, context):
@@ -25,7 +27,7 @@ class SentenceSpout(storm.Spout):
         # TODO
         # Task: randomly generate sentence from sentences string array
         # Note: only generate one sentence in this function
-        pass
+        return random.choice(SENTENCES)
         # End
 
 
