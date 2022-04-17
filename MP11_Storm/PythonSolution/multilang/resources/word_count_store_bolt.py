@@ -16,7 +16,7 @@ class WordCountStoreBolt(storm.BasicBolt):
     def process(self, tup):
         # TODO 
         # Task: save word count pair to redis under the specified hash name
-        self._r.hset(name="partAWordCount", key=tup.value[0], value=tup.value[1])
+        self._r.hset(name=self._redis.get('hashKey'), key=tup.value[0], value=tup.value[1])
         # End
 
 # Start the bolt when it's invoked

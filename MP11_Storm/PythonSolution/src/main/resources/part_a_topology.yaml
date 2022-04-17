@@ -46,30 +46,82 @@ spouts:
   # Task: implement the random sentence spout
   # multilang/resources/random_sentence_spout.py
   # Hint: you need to define output field(s) here when using FluxShellSpout
+  - id: "sentence-spout"
+    className: "org.apache.storm.flux.wrappers.spouts.FluxShellSpout"
+    constructorArgs:
+      # Command line
+      - ["python", "random_sentence_spout.py"]
+      # Output field(s)
+      - ["sentence"]
+    # parallelism hint
+    parallelism: 1
 
 # bolt definitions
 bolts:
   # TODO
   # Task: implement the split sentences bolt
   # multilang/resources/split_sentence_bolt.py
+  - id: "splitter-bolt"
+    className: "org.apache.storm.flux.wrappers.bolts.FluxShellBolt"
+    constructorArgs:
+      # Command line
+      - ["python", "split_sentence_bolt.py"]
+      # Output field(s)
+      - ["word"]
+    parallelism: 2
 
   # TODO
   # Task: implement the word count bolt
   # multilang/resources/word_count_bolt.py
+    - id: "counter-bolt"
+    className: "org.apache.storm.flux.wrappers.bolts.FluxShellBolt"
+    constructorArgs:
+      # Command line
+      - ["python", "word_count_bolt.py"]
+      # Output field(s)
+      - ["word","count"]
+    parallelism: 2
 
   # TODO
   # Task: implement the redis store bolt
   # multilang/resources/word_count_store_bolt.py
+    - id: "store-bolt"
+    className: "org.apache.storm.flux.wrappers.bolts.FluxShellBolt"
+    constructorArgs:
+      # Command line
+      - ["python", "word_count_store_bolt.py"]
+    parallelism: 2
+  
 
 # stream definitions
 # stream definitions define connections between spouts and bolts.
 streams:
   # TODO
   # Task: pipe output of sentences generating spout to split bolt
+  - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+    # The stream emitter
+    from: "sentence-spout"
+    # The stream consumer
+    to: "splitter-bolt"
+    # Grouping type
+    grouping:
+      type: SHUFFLE
 
   # TODO
   # Task: pipe output of split bolt to word count bolt
   # Hint: choose the right grouping type to make problem easier
+  - name: "Splitter -> Counter"
+    from: "splitter-bolt"
+    to: "counter-bolt"
+    grouping:
+      type: FIELDS
+      # field(s) to group on
+      args: ["word"]
 
   # TODO
   # Task: pipe output of word count bolt to redis store bolt
+  - name: "Counter -> Store"
+    from: "counter-bolt"
+    to: "store-bolt"
+    grouping:
+      type: SHUFFLE
