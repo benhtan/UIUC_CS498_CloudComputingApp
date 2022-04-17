@@ -11,6 +11,8 @@ class CountBolt(storm.BasicBolt):
         storm.logInfo("Counter bolt instance starting...")
 
         # Hint: Add necessary instance variables and classes if needed
+        # Create a new counter for this instance
+        self._counter = Counter()
 
     def process(self, tup):
         # TODO
