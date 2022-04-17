@@ -1,8 +1,8 @@
 import storm
 import re
 
-tup = ('the cow jumped over the moon')
-print(re.split("[^a-zA-Z0-9-]", tup))
+# tup = ('the cow jumped over the moon')
+# print(re.split("[^a-zA-Z0-9-]", tup))
 
 class SplitBolt(storm.BasicBolt):
     # There's nothing to initialize here,

@@ -54,7 +54,7 @@ spouts:
       # Output field(s)
       - ["sentence"]
     # parallelism hint
-    parallelism: 1
+    parallelism: 2
 
 # bolt definitions
 bolts:
@@ -73,7 +73,7 @@ bolts:
   # TODO
   # Task: implement the word count bolt
   # multilang/resources/word_count_bolt.py
-    - id: "counter-bolt"
+  - id: "counter-bolt"
     className: "org.apache.storm.flux.wrappers.bolts.FluxShellBolt"
     constructorArgs:
       # Command line
@@ -85,7 +85,7 @@ bolts:
   # TODO
   # Task: implement the redis store bolt
   # multilang/resources/word_count_store_bolt.py
-    - id: "store-bolt"
+  - id: "store-bolt"
     className: "org.apache.storm.flux.wrappers.bolts.FluxShellBolt"
     constructorArgs:
       # Command line
@@ -124,4 +124,6 @@ streams:
     from: "counter-bolt"
     to: "store-bolt"
     grouping:
-      type: SHUFFLE
+      type: FIELDS
+      # field(s) to group on
+      args: ["word","count"]
