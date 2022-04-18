@@ -36,7 +36,7 @@ class TopNFinderBolt(storm.BasicBolt):
             self._topN = topN
             storm.logInfo(f'TopN: {self._topN}')
             tempList = [e[0] for e in self._topN]
-            storm.emit( [ f'top-{self._N}', ', '.join(tempList) ] )
+            storm.emit( [ f'top-N', ', '.join(tempList) ] )
         # End
 
 
