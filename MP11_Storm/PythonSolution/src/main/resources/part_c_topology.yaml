@@ -42,6 +42,7 @@ config:
       hashKey: "partCWordCount"
     # Hint: you can set input file path here
     # make sure it's "/tmp/data.txt" in your final submission
+    filePath: "/tmp/data.txt"
 
 
 # spout definitions
