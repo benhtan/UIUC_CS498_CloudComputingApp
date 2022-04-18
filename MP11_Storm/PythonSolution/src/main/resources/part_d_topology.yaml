@@ -42,12 +42,22 @@ config:
       hashKey: "partDTopN"
     # Hint: you can set input file path here
     # make sure it's "/tmp/data.txt" in your final submission
-
+    filePath: "/tmp/data.txt"
     # Hint: set N here
     # make sure it's 10 in your final submission
+    N: 10
 
 # spout definitions
 spouts:
+  - id: "sentence-spout"
+    className: "org.apache.storm.flux.wrappers.spouts.FluxShellSpout"
+    constructorArgs:
+      # Command line
+      - ["python", "file_reader_spout.py"]
+      # Output field(s)
+      - ["sentence"]
+    # parallelism hint
+    parallelism: 1
 
 # bolt definitions
 bolts:
