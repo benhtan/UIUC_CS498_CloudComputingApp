@@ -13,7 +13,7 @@ class NormalizerBolt(storm.BasicBolt):
             "she", "as", "you", "do", "this", "but", "his", "by", "from",
             "they", "we", "her", "or", "will", "my", "one", "all", "s", "if",
             "any", "our", "may", "your", "these", "d", " ", "me", "so", "what",
-            "him", "their"
+            "him", "their", ""
         ]
 
         storm.logInfo("Normalizer bolt instance starting...")

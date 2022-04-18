@@ -61,9 +61,52 @@ spouts:
 
 # bolt definitions
 bolts:
+  - id: "splitter-bolt"
+    className: "org.apache.storm.flux.wrappers.bolts.FluxShellBolt"
+    constructorArgs:
+      # Command line
+      - ["python", "split_sentence_bolt.py"]
+      # Output field(s)
+      - ["word"]
+    parallelism: 1
+
+  - id: "normalizer-bolt"
+    className: "org.apache.storm.flux.wrappers.bolts.FluxShellBolt"
+    constructorArgs:
+      # Command line
+      - ["python", "normalizer_bolt.py"]
+      # Output field(s)
+      - ["word"]
+    parallelism: 1
+
+  - id: "counter-bolt"
+    className: "org.apache.storm.flux.wrappers.bolts.FluxShellBolt"
+    constructorArgs:
+      # Command line
+      - ["python", "word_count_bolt.py"]
+      # Output field(s)
+      - ["word","count"]
+    parallelism: 1
+
+  - id: "store-bolt"
+    className: "org.apache.storm.flux.wrappers.bolts.FluxShellBolt"
+    constructorArgs:
+      # Command line
+      - ["python", "top_n_store_bolt.py"]
+    parallelism: 1
+
   # Hint: the new top N tracking bolt you need implement in this part is
   # multilang/resources/top_n_finder_bolt.py
   # You need to load N from conf when initialize the bolt
+
+  - id: "topN-bolt"
+    className: "org.apache.storm.flux.wrappers.bolts.FluxShellBolt"
+    constructorArgs:
+      # Command line
+      - ["python", "top_n_finder_bolt.py"]
+      # Output field(s)
+      - ["topN","words"]
+    parallelism: 1
 
   # Hint: change the store bolt to store the top-N words, for which you need to implement 
   # multilang/resources/top_n_store_bolt.py
@@ -72,3 +115,43 @@ bolts:
 # stream definitions define connections between spouts and bolts.
 streams:
   # Hint: add new top N finder bolt into the topology
+  - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+    # The stream emitter
+    from: "sentence-spout"
+    # The stream consumer
+    to: "splitter-bolt"
+    # Grouping type
+    grouping:
+      type: SHUFFLE
+
+  - name: "Splitter -> Normalizer"
+    from: "splitter-bolt"
+    to: "normalizer-bolt"
+    grouping:
+      type: FIELDS
+      # field(s) to group on
+      args: ["word"]
+
+  - name: "Normalizer -> Counter"
+    from: "normalizer-bolt"
+    to: "counter-bolt"
+    grouping:
+      type: FIELDS
+      # field(s) to group on
+      args: ["word"]
+
+  - name: "Counter -> TopN"
+    from: "counter-bolt"
+    to: "topN-bolt"
+    grouping:
+      type: FIELDS
+      # field(s) to group on
+      args: ["word","count"]
+
+  - name: "TopN -> Store"
+    from: "topN-bolt"
+    to: "store-bolt"
+    grouping:
+      type: FIELDS
+      # field(s) to group on
+      args: ["topN","words"]
