@@ -1,0 +1,16 @@
+apiVersion: eksctl.io/v1alpha5 
+kind: ClusterConfig 
+
+metadata: 
+    name: mp12-cluster 
+    region: us-east-1 
+    
+availabilityZones:
+  - us-east-1a
+  - us-east-1b
+
+nodeGroups: 
+  - name: ng-1 
+    instanceType: t2.medium 
+    desiredCapacity: 2
+    privateNetworking: true
