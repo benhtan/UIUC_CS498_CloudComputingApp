@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mp12-free
+spec:
+  template:
+    spec:
+      containers:
+      - name: mp12-free
+        image: mp12-docker
+        command: ["python3", "classify.py", "DATASET=mnist", "TYPE=ff"]
+      restartPolicy: Never
+  backoffLimit: 4
