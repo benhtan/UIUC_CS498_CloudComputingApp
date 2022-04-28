@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: mp12-free
+  namespace: free
+spec:
+  template:
+    spec:
+      containers:
+      - name: mp12-free
+        image: bhtan888/mp12_docker:mp12_bt_docker
+        resources:
+          limits:
+            cpu: "900m"
+        command: ["python3", "classify.py"]
+      restartPolicy: Never
+  backoffLimit: 4

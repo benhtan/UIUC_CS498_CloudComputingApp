@@ -13,3 +13,5 @@ CMD [ "python3", "classify.py" ]
 
 # docker build --tag mp12_bt_docker .
 # docker run mp12_bt_docker
+# docker tag mp12_bt_docker bhtan888/mp12_docker:mp12_bt_docker <-- renameming to enable push to hub
+# docker push bhtan888/mp12_docker:mp12_bt_docker
