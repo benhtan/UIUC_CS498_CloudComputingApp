@@ -22,3 +22,35 @@ Install eksctl
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
+
+STEPS:
+1. Prepare image (local pc)
+2. Test image build (local pc)
+3. Push image to docker build public repository (create the repository first) (local pc)
+	# Tag the image: user/repo:image-name
+	# Push image to repo (public repo)
+4. Prepare environment (EC2 instance from now on):
+	# Install asws client:
+	# Run AWS Configure
+	# Install kubectl
+	# Install eksctl
+	# Install docker
+	# Change permissions for docker.sock
+        # Start docker daemon
+5. Pull your docker image
+6. Deploy cluster with eksctl
+7. Test job via kubectl and using a free-job yaml
+8. Prepare for free jobs:
+	# Create namespace for free service:
+	# Apply pods quota to free namespace using another yaml
+9. Create your server.py
+10. Prepare for server.py
+	# Install kubernetes and flask
+11. Run server:
+12. Test using postman
+13. Stop server, delete all jobs created during test
+13. Submit using test.py
+14. Delete cluster
+15. Delete auto-scaling group
+16. Stop and terminate instances
+17. Delete your AWS account!

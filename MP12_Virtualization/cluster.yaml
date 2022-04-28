@@ -14,3 +14,6 @@ nodeGroups:
     instanceType: t2.medium 
     desiredCapacity: 2
     privateNetworking: true
+
+# eksctl create cluster -f cluster.yaml
+# eksctl delete cluster -f cluster.yaml
