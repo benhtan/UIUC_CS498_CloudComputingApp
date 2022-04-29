@@ -17,6 +17,7 @@ def get_config():
     pods = []
 
     # your code here
+    pods = v1.list_pod_for_all_namespaces(watch=False)
 
     output = {"pods": pods}
     output = json.dumps(output)
@@ -26,10 +27,6 @@ def get_config():
 @app.route('/img-classification/free',methods=['POST'])
 def post_free():
     # your code here
-    with open('free.yaml') as file:
-        cfg = yaml.safe_load(file)
-    job = batch_v1.create_namespaced_job(namespace='free-service', body=cfg)
-    assert isinstance(job, V1Job)
 
     return "success"
 
