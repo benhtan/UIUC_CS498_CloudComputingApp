@@ -39,7 +39,7 @@ STEPS:
         # Start docker daemon
 5. Pull your docker image
 6. Deploy cluster with eksctl
-7. Test job via kubectl and using a free-job yaml: "kubectl create -f free-job.yaml", "kubectl get jobs -A --all-namespaces"
+7. Test job via kubectl and using a free-job yaml: "minikube start" for local cluster; "kubectl create -f free-job.yaml"; "kubectl create -f premium-job.yaml"; "kubectl get jobs -A --all-namespaces"
 8. Prepare for free jobs:
 	# Create namespace for free service: "kubectl create namespace free-service", "kubectl get namespaces --show-labels"
 	# Apply pods quota to free namespace using another yaml: "kubectl apply -f free-resource.yaml --namespace=free-service"
