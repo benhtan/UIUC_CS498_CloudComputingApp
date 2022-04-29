@@ -36,16 +36,20 @@ def free_job():
         # print `resp` to see the response
 
 def get_config():
-    pods = []
+    pods_list = []
 
     # your code here
     pods = v1.list_pod_for_all_namespaces(watch=False)
     
     # print(type(pods))
     for i in pods.items:
-        # print("%s\t%s\t%s" % (i.status.pod_ip, i.metadata.namespace, i.metadata.name))
-        # print(f'{i.metadata.namespace} {i.metadata.name} {i.status}')
-        print(f'{i.metadata}')
-        break
+        # print(f'{i.spec.node_name} {i.status.pod_ip} {i.metadata.namespace} {i.metadata.name} {i.status.phase}')
+        pods_list.append({'node': i.spec.node_name, 'ip': i.status.pod_ip, 'namespace': i.metadata.namespace, 'name': i.metadata.name, 'status': i.status.phase})
 
+    pods_list = {'pods': pods_list}
+    # print(pods_list)
+    
+    output = json.dumps(pods_list)
+    # print(output)
+    
 get_config()
