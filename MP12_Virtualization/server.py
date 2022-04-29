@@ -8,6 +8,7 @@ import json
 # Configs can be set in Configuration class directly or using helper utility
 config.load_kube_config()
 v1 = client.CoreV1Api()
+batch_v1 = client.BatchV1Api()
 app = Flask(__name__)
 # app.run(debug = True)
 
@@ -25,6 +26,10 @@ def get_config():
 @app.route('/img-classification/free',methods=['POST'])
 def post_free():
     # your code here
+    with open('free.yaml') as file:
+        cfg = yaml.safe_load(file)
+    job = batch_v1.create_namespaced_job(namespace='free-service', body=cfg)
+    assert isinstance(job, V1Job)
 
     return "success"
 

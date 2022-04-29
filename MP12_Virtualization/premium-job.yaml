@@ -1,19 +1,19 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: mp12-free
-  namespace: free-service
+  generateName: mp12-premium
+  namespace: default
 spec:
   template:
     spec:
       containers:
-      - name: mp12-free
+      - name: mp12-premium
         image: bhtan888/mp12_docker:mp12_bt_docker
         env:
         - name: DATASET
-          value: "mnist"
+          value: "kmnist"
         - name: TYPE
-          value: "ff"
+          value: "cnn"
         resources:
           limits:
             cpu: "900m"
