@@ -12,6 +12,10 @@ batch_v1 = client.BatchV1Api()
 app = Flask(__name__)
 # app.run(debug = True)
 
+@app.route('/', methods=['GET'])
+def hello_world():
+    return 'hello world'
+
 @app.route('/config', methods=['GET'])
 def get_config():
     pods_list = []
@@ -35,6 +39,8 @@ def get_config():
 @app.route('/img-classification/free',methods=['POST'])
 def post_free():
     # your code here
+    body = request.get_json(force=True)
+    print(body)
     with open(path.join(path.dirname(__file__), "free-job.yaml")) as f:
         # Look into the usage of yaml.safe_load()
         dep = yaml.safe_load(f)
@@ -53,6 +59,8 @@ def post_free():
 @app.route('/img-classification/premium', methods=['POST'])
 def post_premium():
     # your code here
+    body = request.get_json(force=True)
+    print(body)
     with open(path.join(path.dirname(__file__), "premium-job.yaml")) as f:
         # Look into the usage of yaml.safe_load()
         dep = yaml.safe_load(f)
